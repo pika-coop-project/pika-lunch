@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import logo from './asset/img/logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="app-header">
+        <div className="title">
+          <header className="PIKA-header">PIKA</header>
+          <header>Lunch Navigator</header>
+        </div>
+        
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          PIKA Lunch Navigator
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+        
+        
     </div>
   );
 }

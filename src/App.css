@@ -1,38 +1,33 @@
 .App {
-  text-align: center;
+  background-color: #ffffff;
+  font-family: "Libre Franklin", sans-serif;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  width: 207px;
+  height: 109px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header {
+  font-size: 50px;
+  color: #173434;
+  margin-top: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.PIKA-header {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 97px 104px 0px 88px;
 }
