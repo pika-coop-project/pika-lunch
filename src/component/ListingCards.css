@@ -1,10 +1,29 @@
 .listing-container {
   background-color: #d9f0df;
   width: 590px;
-  height: 631px;
+  height: 480px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+}
+
+.listings {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #c3d8c9;
+}
+
+.searchbar-container {
+  margin: 20px;
+}
+
+.searchbar {
+  width: 528px;
+  height: 34px;
+  background: #edf6f0;
+  border-radius: 12px;
+  border: none;
+  padding-left: 16px;
 }
 
 .listings-title {
@@ -37,6 +56,12 @@
 
 body.active-modal {
   overflow-y: hidden;
+}
+
+.add-button {
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }
 
 .modal {
