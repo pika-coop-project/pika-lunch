@@ -1,5 +1,6 @@
 import './ListingCards.css';
 import React, { useState } from "react";
+import Listing from './Listing';
 
 export default function LunchHistory() {
     const [modal, setModal] = useState(false);
@@ -26,7 +27,10 @@ export default function LunchHistory() {
                 </button>
             </div>
 
-            <div className="listing-container"></div>
+            <div className="listing-container">
+            <Listing></Listing>
+            <Listing></Listing>
+            </div>
 
             { modal && (
                 <div className="modal">
@@ -47,4 +51,3 @@ export default function LunchHistory() {
         </div>
     );
 }
-

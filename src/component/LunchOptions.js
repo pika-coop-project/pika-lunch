@@ -1,4 +1,5 @@
 import './ListingCards.css';
+import Listing from './Listing';
 
 const LunchOptions = () => (
     <div className="container">
@@ -9,7 +10,8 @@ const LunchOptions = () => (
             </button>
         </div>
         <div className="listing-container">
-
+            <Listing></Listing>
+            <Listing></Listing>
         </div>
 
     </div>

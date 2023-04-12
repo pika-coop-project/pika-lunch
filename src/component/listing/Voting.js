@@ -1,9 +1,12 @@
 import React from 'react';
+import './Voting.css';
 
-const Voting = ({ upvotes, downvotes }) => {
+const Voting = ({ restaurantName, upvotes, downvotes }) => {
 
   return (
-    <div>placeholder text</div>
+    <div>
+      <p className="restaurant-name">{restaurantName}</p>
+    </div>
   )
 }
 
