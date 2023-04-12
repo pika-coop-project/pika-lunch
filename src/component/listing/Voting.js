@@ -1,10 +1,11 @@
 import React from 'react';
+import './Voting.css';
 
 const Voting = ({ restaurantName, upvotes, downvotes }) => {
 
   return (
     <div>
-      <p className="listing-restaurant">{restaurantName}</p>
+      <p className="restaurant-name">{restaurantName}</p>
     </div>
   )
 }
