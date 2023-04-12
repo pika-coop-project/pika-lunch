@@ -32,3 +32,77 @@
 .generate-button:hover {
   background-color: #004c45;
 }
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: rgba(49, 49, 49, 0.6);
+}
+
+.modal-content {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  background: #ffffff;
+  padding: 80px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-modal {
+  position: absolute;
+  border: none;
+  background: transparent;
+  top: 20px;
+  right: 24px;
+  color: #c3d8c9;
+  font-size: 20px;
+}
+
+.generate-title {
+  color: #173434;
+  font-weight: 500;
+  font-size: 50px;
+}
+
+.generate-text {
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.address {
+  color: #173434;
+}
+
+.phone {
+  color: #a4dcb4;
+}
+
+.went-button {
+  width: 64px;
+  height: 40px;
+  background: #a4dcb4;
+  border-radius: 15px;
+  color: #d9f0df;
+  border: none;
+  transition: all 0.2s;
+}
+.went-button:hover {
+  background-color: #004c45;
+}
+
+.generate-details {
+  margin-top: 26px;
+}
