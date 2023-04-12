@@ -55,7 +55,7 @@ body.active-modal {
   top: 35%;
   left: 35%;
   background: #ffffff;
-  padding: 80px;
+  padding: 60px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
@@ -88,8 +88,18 @@ body.active-modal {
   color: #173434;
 }
 
+.rating {
+  color: #173434;
+}
+
 .phone {
   color: #a4dcb4;
+  margin-bottom: 26px;
+}
+
+.star {
+  color: #f8d376;
+  margin-right: 6px;
 }
 
 .went-button {
@@ -100,11 +110,22 @@ body.active-modal {
   color: #d9f0df;
   border: none;
   transition: all 0.2s;
+  margin-left: 20px;
 }
 .went-button:hover {
   background-color: #004c45;
 }
 
 .generate-details {
-  margin-top: 26px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.generate-dietary {
+  color: #173434;
+}
+
+.dietary-icons {
+  margin-right: 6px;
 }
