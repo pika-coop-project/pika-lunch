@@ -28,8 +28,10 @@ export default function LunchHistory() {
             </div>
 
             <div className="listing-container">
-            <Listing></Listing>
-            <Listing></Listing>
+            <Listing isHistory={true}></Listing>
+            <Listing isHistory={true}></Listing>
+            <Listing isHistory={true}></Listing>
+            <Listing isHistory={true}></Listing>
             </div>
 
             { modal && (
@@ -47,7 +49,6 @@ export default function LunchHistory() {
                     </div>
                 </div> 
             )}
-            
         </div>
     );
 }
