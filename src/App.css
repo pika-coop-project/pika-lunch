@@ -1,6 +1,7 @@
 .App {
   background-color: #ffffff;
   font-family: "Libre Franklin", sans-serif;
+  padding: 0px 100px 86px 100px;
 }
 
 .App-logo {
@@ -29,5 +30,13 @@ header {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  margin: 97px 104px 0px 88px;
+  margin: 97px 0px 50px 0px;
+}
+
+.listing-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0px 50px 0px 50px;
 }

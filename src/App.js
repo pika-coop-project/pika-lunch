@@ -1,5 +1,8 @@
 import logo from './asset/img/logo.svg';
 import './App.css';
+import './component/LunchHistory'
+import LunchHistory from './component/LunchHistory';
+import LunchOptions from './component/LunchOptions';
 
 function App() {
   return (
@@ -12,7 +15,12 @@ function App() {
         
         <img src={logo} className="App-logo" alt="logo" />
       </div>
-        
+      
+      <div className="listing-cards">
+        <LunchHistory />
+        <LunchOptions />
+      </div>
+      
         
     </div>
   );

@@ -1,0 +1,29 @@
+.listing-container {
+  background-color: #d9f0df;
+  width: 590px;
+  height: 631px;
+  border-radius: 30px;
+}
+
+.listings-title {
+  font-weight: 300;
+  font-size: 35px;
+  color: #173434;
+  margin-bottom: 16px;
+  margin-left: 32px;
+}
+
+.listings-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.generate-button {
+  width: 69px;
+  height: 45px;
+  background-color: #a4dcb4;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  margin-left: 24px;
+}
