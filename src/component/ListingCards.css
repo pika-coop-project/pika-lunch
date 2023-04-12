@@ -3,6 +3,8 @@
   width: 590px;
   height: 631px;
   border-radius: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .listings-title {

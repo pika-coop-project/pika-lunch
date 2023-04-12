@@ -1,0 +1,17 @@
+.listing {
+    background-color: #ffffff;
+    width: 510px;
+    height: 150px;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 18px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .listing-flex {
+    display: flex;
+    flex-direction: row;
+  }
