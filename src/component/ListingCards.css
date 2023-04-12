@@ -7,7 +7,7 @@
 
 .listings-title {
   font-weight: 300;
-  font-size: 35px;
+  font-size: 30px;
   color: #173434;
   margin-bottom: 16px;
   margin-left: 32px;
@@ -19,11 +19,16 @@
 }
 
 .generate-button {
-  width: 69px;
-  height: 45px;
+  width: 55px;
+  height: 38px;
   background-color: #a4dcb4;
   color: #ffffff;
   border: none;
   border-radius: 15px;
-  margin-left: 24px;
+  margin-left: 20px;
+  transition: all 0.2s;
+}
+
+.generate-button:hover {
+  background-color: #004c45;
 }
