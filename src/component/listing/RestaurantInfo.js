@@ -2,8 +2,7 @@ import React from 'react';
 
 const RestaurantInfo = ({ restaurantName, address, phoneNumber, isVegan, isPescatarian }) => {
 
-  return 
-  (
+  return (
     <div>placeholder text</div>
   )
 }

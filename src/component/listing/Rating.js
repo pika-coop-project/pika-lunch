@@ -2,8 +2,7 @@ import React from 'react';
 
 const Rating = ({ rating }) => {
 
-  return 
-  (
+  return (
     <div>placeholder text</div>
   )
 }
