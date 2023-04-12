@@ -8,26 +8,24 @@ const Listing = ({ restaurantName="Restaurant Name", address="Address", phoneNum
     if (isHistory) {
         return (
         <div className="listing listing-flex">
-          <RestaurantInfo 
-              restaurantName={restaurantName} 
+            <Rating restaurantName={restaurantName} rating={rating} />
+            <RestaurantInfo  
               address={address} 
               phoneNumber={phoneNumber} 
               isVegan={isVegan} 
               isPescatarian={isPescatarian} 
-          />
-          <Rating rating={rating} /> 
+            /> 
         </div>)
     } else {
         return (
         <div className="listing listing-flex">
-          <RestaurantInfo 
-              restaurantName={restaurantName} 
+            <Voting restaurantName={restaurantName} upvotes={upvotes} downvotes={downvotes} />
+            <RestaurantInfo  
               address={address} 
               phoneNumber={phoneNumber} 
               isVegan={isVegan} 
               isPescatarian={isPescatarian} 
-          />
-          <Voting upvotes={upvotes} downvotes={downvotes} /> 
+            /> 
         </div>
         )
     }

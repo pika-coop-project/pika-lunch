@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Voting = ({ upvotes, downvotes }) => {
+const Voting = ({ restaurantName, upvotes, downvotes }) => {
 
   return (
-    <div>placeholder text</div>
+    <div>
+      <p className="listing-restaurant">{restaurantName}</p>
+    </div>
   )
 }
 

@@ -5,7 +5,6 @@ const RestaurantInfo = ({ restaurantName, address, phoneNumber, isVegan, isPesca
 
   return (
     <div>
-      <p className="listing-restaurant">{restaurantName}</p>
       <p>{address}</p>
       <p>{phoneNumber}</p>
     </div>

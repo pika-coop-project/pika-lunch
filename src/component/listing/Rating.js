@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Rating = ({ rating }) => {
+const Rating = ({ restaurantName, rating }) => {
 
   return (
-    <div>placeholder text</div>
+    <div>
+      <p className="listing-restaurant">{restaurantName}</p>
+    </div>
   )
 }
 

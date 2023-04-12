@@ -7,11 +7,9 @@
     margin-right: auto;
     padding: 18px;
     border-radius: 25px;
-    display: flex;
-    flex-direction: row;
   }
 
   .listing-flex {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
