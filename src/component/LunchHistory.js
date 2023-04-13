@@ -20,6 +20,7 @@ export default function LunchHistory() {
         
         console.log("GET request new result", newListJson);
     }
+    
 
     const [modal, setModal] = useState(false);
     const toggleModal = () => {
@@ -37,7 +38,7 @@ export default function LunchHistory() {
         <div className="container">
             <div className="listings-header">
                 <div className="listings-title">Lunch History</div>
-                <button className="generate-button" onClick={testPostFunc}>
+                <button className="generate-button" onClick={toggleModal}>
                     <i className="fas fa-sync-alt fa-lg"/>
                 </button>
             </div>
