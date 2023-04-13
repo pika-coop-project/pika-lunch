@@ -17,11 +17,11 @@ const Rating = ({ restaurantName, rating }) => {
           <i class="fas fa-chevron-down fa-xs arrow-down-icon"/>
         </button>
         <div class="dropdown-content">
-          <a href="#"><button className="rating-option" onClick={()=>{alert('clicked 1')}}>1</button></a>
-          <a href="#"><button className="rating-option" onClick={()=>{alert('clicked 2')}}>2</button></a>
-          <a href="#"><button className="rating-option" onClick={()=>{alert('clicked 3')}}>3</button></a>
-          <a href="#"><button className="rating-option" onClick={()=>{alert('clicked 4')}}>4</button></a>
-          <a href="#"><button className="rating-option" onClick={()=>{alert('clicked 5')}}>5</button></a>
+          <button className="rating-option" onClick={()=>{alert('clicked 1')}}>1</button>
+          <button className="rating-option" onClick={()=>{alert('clicked 2')}}>2</button>
+          <button className="rating-option" onClick={()=>{alert('clicked 3')}}>3</button>
+          <button className="rating-option" onClick={()=>{alert('clicked 4')}}>4</button>
+          <button className="rating-option" onClick={()=>{alert('clicked 5')}}>5</button>
         </div>
 
       </div>
