@@ -1,4 +1,5 @@
 import './ListingCards.css';
+import './AddOptionModal.css';
 import React, { useState } from "react";
 import Listing from './Listing';
 
@@ -15,6 +16,9 @@ export default function LunchOptions(){
 
     const handleAddModal = () => {
         setAddModal(!addModal);
+    }
+    const handleAddOption = () => {
+       alert('adding new option !!!!');
     }
 
     //prepend body when modal is open
@@ -75,8 +79,46 @@ export default function LunchOptions(){
         { addModal && (
             <div className="modal">
                 <div className="modal-content">
-                    <div className="generate-title">Saku</div>
+                    <div className="add-modal-title">New Lunch Option</div>
+                    <div className="add-modal-info">
+
+                        <div className="subheader-container">
+                            <div className="add-modal-subheader">Restaurant Info</div>
+                            <div className="input-title">
+                                <div className="add-modal-text">Name</div>
+                                <input type="text" className="input" placeholder="Insert Name"/>
+                            </div>
+                            <div className="input-title">
+                                <div className="add-modal-text">Address</div>
+                                <input type="text" className="input" placeholder="Insert Address"/>
+                            </div>
+                            <div className="input-title">
+                                <div className="add-modal-text">Phone #</div>
+                                <input type="text" className="input" placeholder="Insert Phone Number"/>
+                            </div> 
+                        </div>
+
+                        <div class="vl"></div>
+
+                        <div className="subheader-container">
+                            <div className="add-modal-subheader">Additional Info</div>
+                            <div className="input-title">
+                                <input type="checkbox" className="checkbox"/>
+                                <div className="add-modal-text">vegan</div>
+                            </div> 
+                            <div className="input-title">
+                                <input type="checkbox"/>
+                                <div className="add-modal-text">pescetarian</div>
+                            </div> 
+                        </div>
+                        
+                    </div>
                     <button className="close-modal" onClick={handleAddModal}>x</button>
+
+                    <div className="cancel-add-buttons">
+                        <button className="cancel-modal-button" onClick={handleAddModal}>cancel</button>
+                        <button className="add-modal-button" onClick={handleAddOption}>add</button>
+                    </div>
                 </div>
             </div> 
         )}
