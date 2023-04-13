@@ -4,23 +4,23 @@ import Listing from './Listing';
 
 export default function LunchHistory() {
 
-    const testPostFunc = async () => {
-        const postRequest = await fetch("/.netlify/functions/restaurant", {
-            method: "POST",
-            body: JSON.stringify({
-            name: "Saku1",
-            address: "101 downtown",
-            }),
-        });
+    // // sample function:
+    // const testPostFunc = async () => {
+    //     const postRequest = await fetch("/.netlify/functions/restaurant", {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //         name: "Saku1",
+    //         address: "101 downtown",
+    //         }),
+    //     });
         
-        console.log("POST request status code", postRequest.status);
+    //     console.log("POST request status code", postRequest.status);
         
-        const newGetRequest = await fetch("/.netlify/functions/restaurant");
-        const newListJson = await newGetRequest.json();
+    //     const newGetRequest = await fetch("/.netlify/functions/restaurant");
+    //     const newListJson = await newGetRequest.json();
         
-        console.log("GET request new result", newListJson);
-    }
-    
+    //     console.log("GET request new result", newListJson);
+    // }
 
     const [modal, setModal] = useState(false);
     const toggleModal = () => {
