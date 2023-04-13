@@ -14,7 +14,7 @@ export default function LunchOptions(){
     }
 
     const handleAddModal = () => {
-        setAddModal(!generateModal);
+        setAddModal(!addModal);
     }
 
     //prepend body when modal is open
@@ -42,11 +42,14 @@ export default function LunchOptions(){
                 <Listing></Listing>
                 <Listing/>
             </div>
-        </div>
 
-        <button className="add-button" onClick={handleAddModal}>
-                <i class="fas fa-plus fa-3x"/>
-        </button>
+            <div className="add-button-container">
+                <button className="add-button" onClick={handleAddModal}>
+                    <i class="fas fa-plus fa-2x"/>
+                </button>
+            </div>
+            
+        </div>
 
         { generateModal && (
             <div className="modal">
@@ -64,6 +67,15 @@ export default function LunchOptions(){
                         </button>
                     </div>
                     <button className="close-modal" onClick={toggleModal}>x</button>
+                </div>
+            </div> 
+        )}
+
+        { addModal && (
+            <div className="modal">
+                <div className="modal-content">
+                    <div className="generate-title">Saku</div>
+                    <button className="close-modal" onClick={handleAddModal}>x</button>
                 </div>
             </div> 
         )}

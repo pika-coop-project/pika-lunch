@@ -60,9 +60,23 @@ body.active-modal {
 }
 
 .add-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 25px;
+  border: none;
+  color: #ffffff;
+  background-color: #004c45;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.add-button:hover {
+  background-color: #173434;
+}
+
+.add-button-container {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 14%;
+  bottom: 13%;
 }
 
 .modal {
@@ -78,8 +92,8 @@ body.active-modal {
 
 .modal-content {
   position: absolute;
-  top: 35%;
-  left: 35%;
+  /* top: 35%;
+  left: 35%; */
   background: #ffffff;
   padding: 60px;
   border-radius: 30px;
