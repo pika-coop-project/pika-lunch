@@ -17,6 +17,7 @@
 
 .restaurant-rating-number {
   margin-left: 6px;
+  margin-top: 6px;
 }
 
 .rating-dropdown {
@@ -42,6 +43,8 @@
 .star-icon {
   width: 18px;
   height: 18px;
+  margin-left: 8px;
+  margin-top: 6px;
 }
 
 .arrow-down-icon {

@@ -30,7 +30,7 @@ header {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  margin: 90px 0px 20px 0px;
+  margin: 90px 0px 10px 0px;
 }
 
 .listing-cards {

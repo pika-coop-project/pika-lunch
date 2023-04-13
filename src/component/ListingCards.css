@@ -1,7 +1,7 @@
 .listing-container {
   background-color: #d9f0df;
   width: 590px;
-  height: 480px;
+  height: 60vh;
   border-radius: 26px;
   display: flex;
   flex-direction: column;
