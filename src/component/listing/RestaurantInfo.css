@@ -2,4 +2,23 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: -8px;
+}
+
+.phone-number {
+    color: #A4DCB4
+}
+
+.carrot-icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 24px;
+    padding: 8px
+}
+
+.fish-icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 24px;
+    padding: 8px
 }

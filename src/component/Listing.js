@@ -4,7 +4,7 @@ import RestaurantInfo from './listing/RestaurantInfo';
 import Rating from './listing/Rating';
 import Voting from './listing/Voting';
 
-const Listing = ({ restaurantName="Restaurant Name", address="Address", phoneNumber="123-456-7890", isVegan=true, isPescatarian=true, isHistory, rating, upvotes, downvotes }) => {
+const Listing = ({ restaurantName="Restaurant Name", address="Street Address, Vancouver, BC V01 2G3", phoneNumber="123-456-7890", isVegan=true, isPescatarian=true, isHistory, rating=5.0, upvotes=5, downvotes=5 }) => {
     if (isHistory) {
         return (
         <div className="listing listing-flex">

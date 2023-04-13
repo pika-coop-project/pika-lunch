@@ -1,4 +1,41 @@
+.rating-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.restaurant-name-and-rating {
+    display:flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: -16px;
+}
+
 .restaurant-name {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
+}
+
+.restaurant-rating {
+    padding-top: 12px;
+    margin-left: -8px;
+}
+
+.rating-dropdown {
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #A4DCB4;
+    width: 100px;
+    height: 24px;
+    border-radius: 5px;
+    margin-top: 16px;
+    border: none;
+    outline: none;
+}
+
+.star-icon {
+    width: 18px;
+    height: 18px;
+    margin-top: 16px;
+    padding: 12px
 }

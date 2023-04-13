@@ -29,9 +29,10 @@ export default function LunchHistory() {
                     <input type="text" className="searchbar" placeholder="Search.."/>
                 </div>
                 <div className="listings">
-                    <Listing></Listing>
-                    <Listing></Listing>
-                    <Listing/>
+                    <Listing isHistory={true}></Listing>
+                    <Listing isHistory={true}></Listing>
+                    <Listing isHistory={true}></Listing>
+                    <Listing isHistory={true}></Listing>
                 </div>
             </div>
 
@@ -55,7 +56,6 @@ export default function LunchHistory() {
                     </div>
                 </div> 
             )}
-            
         </div>
     );
 }

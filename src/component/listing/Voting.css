@@ -1,4 +1,30 @@
-.restaurant-namet {
+.voting-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.restaurant-name-and-voting {
+    display:flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: -16px;
+}
+
+.restaurant-name {
     font-size: 24px;
     font-weight: bold;
+}
+
+.votes {
+    color: #A4DCB4;
+    margin: 4px;
+    margin-right: 14px; 
+    padding-top: 26px;
+}
+
+.went-icon {
+    height: 24px;
+    margin-top: 16px;
+    padding: 12px
 }
