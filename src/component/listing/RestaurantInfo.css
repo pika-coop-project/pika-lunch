@@ -1,24 +1,25 @@
 .listing-info {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: -8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .phone-number {
-    color: #A4DCB4
+  color: #a4dcb4;
+  margin-top: 6px;
 }
 
-.carrot-icon {
-    width: 28px;
-    height: 28px;
-    margin-top: 24px;
-    padding: 8px
+.address {
+  margin-top: 12px;
 }
 
-.fish-icon {
-    width: 28px;
-    height: 28px;
-    margin-top: 24px;
-    padding: 8px
+.dietary-icon {
+  margin-right: 6px;
+  color: #173434;
+}
+
+.dietary-icons {
+  margin-top: 28px;
 }

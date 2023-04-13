@@ -1,19 +1,17 @@
 import React from 'react';
 import './RestaurantInfo.css';
-import fish from '../../asset/img/fish.svg';
-import carrot from '../../asset/img/carrot.svg';
 
 const RestaurantInfo = ({ address, phoneNumber, isVegan, isPescatarian }) => {
 
   return (
     <div className="listing-info">
       <div>
-        <p>{address}</p>
-        <p className="phone-number">{phoneNumber}</p>
+        <div className="address">{address}</div>
+        <div className="phone-number">{phoneNumber}</div>
       </div>
-      <div>
-        <img src={carrot} className="carrot-icon" alt="carrot icon" />
-        <img src={fish} className="fish-icon" alt="fish icon" />
+      <div className="dietary-icons">
+        <i class="fas fa-carrot fa-lg dietary-icon"/>
+        <i class="fas fa-fish fa-lg dietary-icon"/>
       </div>
     </div>
   )

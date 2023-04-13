@@ -1,11 +1,11 @@
 .listing {
   background-color: #ffffff;
   width: 516px;
-  height: 124px;
-  margin-bottom: 24px;
+  height: 76px;
+  margin-bottom: 16px;
   margin-left: 20px;
-  padding: 18px;
-  border-radius: 25px;
+  padding: 24px 20px;
+  border-radius: 20px;
 }
 
 .listing-flex {
