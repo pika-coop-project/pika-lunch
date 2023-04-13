@@ -3,6 +3,24 @@ import React, { useState } from "react";
 import Listing from './Listing';
 
 export default function LunchHistory() {
+
+    const testPostFunc = async () => {
+        const postRequest = await fetch("/.netlify/functions/restaurant", {
+            method: "POST",
+            body: JSON.stringify({
+            name: "Saku1",
+            address: "101 downtown",
+            }),
+        });
+        
+        console.log("POST request status code", postRequest.status);
+        
+        const newGetRequest = await fetch("/.netlify/functions/restaurant");
+        const newListJson = await newGetRequest.json();
+        
+        console.log("GET request new result", newListJson);
+    }
+
     const [modal, setModal] = useState(false);
     const toggleModal = () => {
         setModal(!modal);
@@ -19,7 +37,7 @@ export default function LunchHistory() {
         <div className="container">
             <div className="listings-header">
                 <div className="listings-title">Lunch History</div>
-                <button className="generate-button" onClick={toggleModal}>
+                <button className="generate-button" onClick={testPostFunc}>
                     <i className="fas fa-sync-alt fa-lg"/>
                 </button>
             </div>
