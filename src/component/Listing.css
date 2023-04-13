@@ -1,15 +1,14 @@
 .listing {
-    background-color: #ffffff;
-    width: 510px;
-    height: 150px;
-    margin-top: 24px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 18px;
-    border-radius: 25px;
-  }
+  background-color: #ffffff;
+  width: 516px;
+  height: 124px;
+  margin-bottom: 24px;
+  margin-left: 20px;
+  padding: 18px;
+  border-radius: 25px;
+}
 
-  .listing-flex {
-    display: flex;
-    flex-direction: column;
-  }
+.listing-flex {
+  display: flex;
+  flex-direction: column;
+}

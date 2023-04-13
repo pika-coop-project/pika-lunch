@@ -1,10 +1,30 @@
 .listing-container {
   background-color: #d9f0df;
   width: 590px;
-  height: 631px;
-  border-radius: 30px;
+  height: 480px;
+  border-radius: 26px;
   display: flex;
   flex-direction: column;
+  padding-right: 16px;
+}
+
+.listings {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #c3d8c9;
+}
+
+.searchbar-container {
+  margin: 20px;
+}
+
+.searchbar {
+  width: 528px;
+  height: 34px;
+  background: #edf6f0;
+  border-radius: 12px;
+  border: none;
+  padding-left: 16px;
 }
 
 .listings-title {
@@ -39,6 +59,12 @@ body.active-modal {
   overflow-y: hidden;
 }
 
+.add-button {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
 .modal {
   width: 100vw;
   height: 100vh;
@@ -55,7 +81,7 @@ body.active-modal {
   top: 35%;
   left: 35%;
   background: #ffffff;
-  padding: 80px;
+  padding: 60px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
@@ -88,8 +114,18 @@ body.active-modal {
   color: #173434;
 }
 
+.rating {
+  color: #173434;
+}
+
 .phone {
   color: #a4dcb4;
+  margin-bottom: 26px;
+}
+
+.star {
+  color: #f8d376;
+  margin-right: 6px;
 }
 
 .went-button {
@@ -100,11 +136,22 @@ body.active-modal {
   color: #d9f0df;
   border: none;
   transition: all 0.2s;
+  margin-left: 20px;
 }
 .went-button:hover {
   background-color: #004c45;
 }
 
 .generate-details {
-  margin-top: 26px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.generate-dietary {
+  color: #173434;
+}
+
+.dietary-icons {
+  margin-right: 6px;
 }
