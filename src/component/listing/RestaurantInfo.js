@@ -3,13 +3,13 @@ import './RestaurantInfo.css';
 import fish from '../../asset/img/fish.svg';
 import carrot from '../../asset/img/carrot.svg';
 
-const RestaurantInfo = ({ restaurantName, address, phoneNumber, isVegan, isPescatarian }) => {
+const RestaurantInfo = ({ address, phoneNumber, isVegan, isPescatarian }) => {
 
   return (
     <div className="listing-info">
       <div>
         <p>{address}</p>
-        <p>{phoneNumber}</p>
+        <p className="phone-number">{phoneNumber}</p>
       </div>
       <div>
         <img src={carrot} className="carrot-icon" alt="carrot icon" />
