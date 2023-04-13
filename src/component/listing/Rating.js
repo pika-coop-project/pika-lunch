@@ -11,11 +11,15 @@ const Rating = ({ restaurantName, rating }) => {
         <img src={star} className="star-icon" alt="star icon" />
         <div className="restaurant-rating-number">{rating}</div>
       </div>
-      <div>
-        <button className="rating-dropdown" onClick={()=>{alert('clicked add rating')}}>
+      <div className="dropdown">
+        <button className="rating-dropdown">
           add rating
           <i class="fas fa-chevron-down fa-xs arrow-down-icon"/>
         </button>
+        <div class="dropdown-content">
+          <a href="#"><button className="rating-option" onClick={()=>{alert('clicked 1')}}>1</button></a>
+          <a href="#"><button className="rating-option" onClick={()=>{alert('clicked 2')}}>2</button></a>
+        </div>
 
       </div>
     </div>

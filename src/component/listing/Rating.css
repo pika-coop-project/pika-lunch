@@ -30,8 +30,13 @@
   outline: none;
   transition: all 0.2s;
 }
-.rating-dropdown:hover {
-  background-color: #004c45;
+
+.rating-option {
+  width: 64px;
+  border: none;
+  background: transparent;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .star-icon {
@@ -41,4 +46,38 @@
 
 .arrow-down-icon {
   margin-left: 4px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(235, 235, 230, 0.8);
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 6px 6px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(199, 199, 195, 0.4);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .rating-dropdown {
+  background-color: #004c45;
 }

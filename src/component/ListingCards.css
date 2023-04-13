@@ -147,7 +147,7 @@ body.active-modal {
   width: 64px;
   height: 40px;
   background: #a4dcb4;
-  border-radius: 15px;
+  border-radius: 8px;
   color: #d9f0df;
   border: none;
   transition: all 0.2s;
