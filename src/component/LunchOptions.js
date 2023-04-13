@@ -40,7 +40,8 @@ export default function LunchOptions(){
             <div className="listings">
                 <Listing></Listing>
                 <Listing></Listing>
-                <Listing/>
+                <Listing></Listing>
+                <Listing></Listing>
             </div>
         </div>
 
