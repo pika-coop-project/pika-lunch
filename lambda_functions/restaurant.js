@@ -44,6 +44,23 @@ const pushToDatabase = async (db, data) => {
     }
 };
 
+const updateDatabase = async (db, data) => {
+  const restaurantData = {
+    name: data.name,
+    address: data.address,
+  };
+
+  if (restaurantData.name && restaurantData.address) {
+    const result = await db.collection("restaurant")
+      .updateOne({ name: restaurantData.name, address: restaurantData.address }, { $set: { "went": true } });
+    console.log(`${result.matchedCount} document(s) matched the update query criteria`);
+    console.log(`${result.modifiedCount} document(s) was/were updated`);
+    return { statusCode: 200 };
+  } else {
+    return { statusCode: 404 };
+  }
+};
+
 const deleteFromDatabase = async (db, data) => {
   const restaurantData = {
     name: data.name
@@ -69,6 +86,8 @@ module.exports.handler = async (event, context) => {
       return queryDatabase(db);
     case "POST":
       return pushToDatabase(db, JSON.parse(event.body));
+    case "PATCH":
+      return updateDatabase(db, JSON.parse(event.body));
     case "DELETE":
       return deleteFromDatabase(db, JSON.parse(event.body));
     default:

@@ -25,6 +25,18 @@ export default function LunchHistory() {
         console.log("POST request status code", postRequest.status);
     }
 
+    const testUpdateFunc = async () => {
+        const updateRequest = await fetch("/.netlify/functions/restaurant", {
+            method: "PATCH",
+            body: JSON.stringify({
+            name: "Saku1",
+            address: "101 downtown",
+            }),
+        });
+        
+        console.log("UPDATE request status code", updateRequest.status);
+    }
+
     const testDeleteFunc = async () => {
         const deleteRequest = await fetch("/.netlify/functions/restaurant", {
             method: "DELETE",
@@ -61,6 +73,9 @@ export default function LunchHistory() {
                 </button>
                 <button className="generate-button" onClick={testGetFunc}>
                     view
+                </button>
+                <button className="generate-button" onClick={testUpdateFunc}>
+                    update to went
                 </button>
                 <button className="generate-button" onClick={testDeleteFunc}>
                     delete
