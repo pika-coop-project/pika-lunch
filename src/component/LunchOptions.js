@@ -6,6 +6,13 @@ import Listing from './Listing';
 export default function LunchOptions(){
     const [generateModal, setGenerateModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
+    const [restoInfo, setRestoInfo] = useState({
+        name: "",
+        address: "",
+        phonenumber:"",
+        vegan: false,
+        pescetarian: false,
+    });
 
     const toggleModal = () => {
         setGenerateModal(!generateModal);
@@ -17,8 +24,17 @@ export default function LunchOptions(){
     const handleAddModal = () => {
         setAddModal(!addModal);
     }
-    const handleAddOption = () => {
-       alert('adding new option !!!!');
+    const handleAddOption = (event) => {
+       event.preventDefault();
+       console.log(restoInfo);
+       setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
+       setAddModal(!addModal);
+    }
+    const handleChange = (event) => {
+        setRestoInfo({...restoInfo, [event.target.name]: event.target.value});
+    }
+    const handleAdditionalInfo = (event) => {
+        setRestoInfo({...restoInfo, [event.target.name]: true});
     }
 
     //prepend body when modal is open
@@ -33,7 +49,7 @@ export default function LunchOptions(){
         <div className="listings-header">
             <div className="listings-title">Lunch Options</div>
             <button className="generate-button" onClick={toggleModal}>
-                <i class="fas fa-sync-alt fa-lg"/>
+                <i className="fas fa-sync-alt fa-lg"/>
             </button>
         </div>
         
@@ -50,7 +66,7 @@ export default function LunchOptions(){
 
             <div className="add-button-container">
                 <button className="add-button" onClick={handleAddModal}>
-                    <i class="fas fa-plus fa-2x"/>
+                    <i className="fas fa-plus fa-2x"/>
                 </button>
             </div>
             
@@ -64,8 +80,8 @@ export default function LunchOptions(){
                     <div className="generate-text phone">(778) 379-5872</div>
                     <div className="generate-details">
                         <div className="generate-dietary">
-                            <i class="fas fa-carrot fa-lg dietary-icons"/>
-                            <i class="fas fa-fish fa-lg"/>
+                            <i className="fas fa-carrot fa-lg dietary-icons"/>
+                            <i className="fas fa-fish fa-lg"/>
                         </div>
                         <button onClick={handleWent} className="went-button">
                             <i className="fas fa-check fa-lg"/>
@@ -86,28 +102,55 @@ export default function LunchOptions(){
                             <div className="add-modal-subheader">Restaurant Info</div>
                             <div className="input-title">
                                 <div className="add-modal-text">Name</div>
-                                <input type="text" className="input" placeholder="Insert Name"/>
+                                <input 
+                                    type="text" 
+                                    className="input" 
+                                    name="name" 
+                                    placeholder="Insert Name"
+                                    value={restoInfo.name}
+                                    onChange={handleChange}/>
                             </div>
                             <div className="input-title">
                                 <div className="add-modal-text">Address</div>
-                                <input type="text" className="input" placeholder="Insert Address"/>
+                                <input 
+                                    type="text" 
+                                    className="input" 
+                                    name="address" 
+                                    placeholder="Insert Address"
+                                    value={restoInfo.address}
+                                    onChange={handleChange}/>
                             </div>
                             <div className="input-title">
                                 <div className="add-modal-text">Phone #</div>
-                                <input type="text" className="input" placeholder="Insert Phone Number"/>
+                                <input 
+                                    type="text" 
+                                    className="input" 
+                                    name="phonenumber" 
+                                    placeholder="Insert Phone Number"
+                                    value={restoInfo.phonenumber}
+                                    onChange={handleChange}/>
                             </div> 
                         </div>
 
-                        <div class="vl"></div>
+                        <div className="vl"></div>
 
                         <div className="subheader-container">
                             <div className="add-modal-subheader">Additional Info</div>
                             <div className="input-title">
-                                <input type="checkbox" className="checkbox"/>
+                                <input 
+                                    type="checkbox" 
+                                    className="checkbox"
+                                    name="vegan" 
+                                    value={restoInfo.vegan}
+                                    onChange={handleAdditionalInfo}/>
                                 <div className="add-modal-text">vegan</div>
                             </div> 
                             <div className="input-title">
-                                <input type="checkbox"/>
+                                <input 
+                                    type="checkbox"
+                                    name="pescetarian" 
+                                    value={restoInfo.pescetarian}
+                                    onChange={handleAdditionalInfo}/>
                                 <div className="add-modal-text">pescetarian</div>
                             </div> 
                         </div>

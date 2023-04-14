@@ -10,18 +10,18 @@ const Voting = ({ restaurantName, upvotes, downvotes }) => {
         <div className="name-container">
         <div className="restaurant-name">{restaurantName}</div>
         <button className="went-listing-button" onClick={() =>(alert('upvoted'))}>
-          <i class="fas fa-check fa-lg"/>
+          <i className="fas fa-check fa-lg"/>
         </button>
       </div>
 
      
         <div className="votes">
           <button className="vote-button" onClick={() =>(alert('upvoted'))}>
-            <i class="fas fa-thumbs-up fa-lg vote-icon"/>
+            <i className="fas fa-thumbs-up fa-lg vote-icon"/>
           </button>
           <div className="votes">{upvotes}</div>
           <button className="vote-button" onClick={() =>(alert('downvoted'))}>
-            <i class="fas fa-thumbs-down fa-lg vote-icon"/>
+            <i className="fas fa-thumbs-down fa-lg vote-icon"/>
           </button>
           <div className="votes">{downvotes}</div>
         </div>

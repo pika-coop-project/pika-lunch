@@ -91,8 +91,8 @@ export default function LunchHistory() {
                         <div className="generate-text phone">(778) 379-5872</div>
 
                         <div className="generate-dietary">
-                            <i class="fas fa-carrot fa-lg dietary-icons"/>
-                            <i class="fas fa-fish fa-lg"/>
+                            <i className="fas fa-carrot fa-lg dietary-icons"/>
+                            <i className="fas fa-fish fa-lg"/>
                         </div>
 
                         <button className="close-modal" onClick={toggleModal}>x</button>
