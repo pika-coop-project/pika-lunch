@@ -1,11 +1,16 @@
 import './ListingCards.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Listing from './Listing';
 
 export default function LunchHistory() {
 
-    // sample functions:
+    const getListings = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const listings = await result.json();
+        console.log("Listings from DB", listings);
+    }
 
+    // sample functions:
     const testGetFunc = async () => {
         const newGetRequest = await fetch("/.netlify/functions/restaurant");
         const newListJson = await newGetRequest.json();
@@ -48,6 +53,11 @@ export default function LunchHistory() {
         
         console.log("DELETE request status code", deleteRequest.status);
     }
+
+
+    useEffect(() => {
+        getListings();
+    }, []);
 
     const [modal, setModal] = useState(false);
     const toggleModal = () => {
