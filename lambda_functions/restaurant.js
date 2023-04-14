@@ -42,7 +42,20 @@ const pushToDatabase = async (db, data) => {
     } else {
       return { statusCode: 422 };
     }
+};
+
+const deleteFromDatabase = async (db, data) => {
+  const restaurantData = {
+    name: data.name
   };
+
+  if (restaurantData.name) {
+    await db.collection("restaurant").deleteOne({"name": restaurantData.name});
+    return { statusCode: 200 };
+  } else {
+    return { statusCode: 404 };
+  }
+};
 
 module.exports.handler = async (event, context) => {
   // otherwise the connection will never complete, since
@@ -56,6 +69,8 @@ module.exports.handler = async (event, context) => {
       return queryDatabase(db);
     case "POST":
       return pushToDatabase(db, JSON.parse(event.body));
+    case "DELETE":
+      return deleteFromDatabase(db, JSON.parse(event.body));
     default:
       return { statusCode: 400 };
   }

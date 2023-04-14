@@ -4,23 +4,38 @@ import Listing from './Listing';
 
 export default function LunchHistory() {
 
-    // // sample function:
-    // const testPostFunc = async () => {
-    //     const postRequest = await fetch("/.netlify/functions/restaurant", {
-    //         method: "POST",
-    //         body: JSON.stringify({
-    //         name: "Saku1",
-    //         address: "101 downtown",
-    //         }),
-    //     });
+    // sample functions:
+
+    const testGetFunc = async () => {
+        const newGetRequest = await fetch("/.netlify/functions/restaurant");
+        const newListJson = await newGetRequest.json();
         
-    //     console.log("POST request status code", postRequest.status);
+        console.log("GET request new result", newListJson);
+    }
+
+    const testPostFunc = async () => {
+        const postRequest = await fetch("/.netlify/functions/restaurant", {
+            method: "POST",
+            body: JSON.stringify({
+            name: "Saku1",
+            address: "101 downtown",
+            }),
+        });
         
-    //     const newGetRequest = await fetch("/.netlify/functions/restaurant");
-    //     const newListJson = await newGetRequest.json();
+        console.log("POST request status code", postRequest.status);
+    }
+
+    const testDeleteFunc = async () => {
+        const deleteRequest = await fetch("/.netlify/functions/restaurant", {
+            method: "DELETE",
+            body: JSON.stringify({
+            name: "Saku1",
+            address: "101 downtown",
+            }),
+        });
         
-    //     console.log("GET request new result", newListJson);
-    // }
+        console.log("DELETE request status code", deleteRequest.status);
+    }
 
     const [modal, setModal] = useState(false);
     const toggleModal = () => {
@@ -40,6 +55,15 @@ export default function LunchHistory() {
                 <div className="listings-title">Lunch History</div>
                 <button className="generate-button" onClick={toggleModal}>
                     <i className="fas fa-sync-alt fa-lg"/>
+                </button>
+                <button className="generate-button" onClick={testPostFunc}>
+                    add
+                </button>
+                <button className="generate-button" onClick={testGetFunc}>
+                    view
+                </button>
+                <button className="generate-button" onClick={testDeleteFunc}>
+                    delete
                 </button>
             </div>
 
