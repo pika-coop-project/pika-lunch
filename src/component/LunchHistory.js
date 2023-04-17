@@ -49,9 +49,18 @@ export default function LunchHistory() {
     }
 
     const [listings, setListings] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
     const [modal, setModal] = useState(false);
     const toggleModal = () => {
         setModal(!modal);
+    }
+
+    const searchListings = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = await result.json();
+        const searchResults = dbListings.filter(listing => (listing.name.toLowerCase()).includes(searchInput.toLowerCase()));
+        console.log("search results->", searchResults);
+        setListings(searchResults);
     }
 
     useEffect(() => {
@@ -97,7 +106,21 @@ export default function LunchHistory() {
 
             <div className="listing-container">
                 <div className="searchbar-container">
-                    <input type="text" className="searchbar" placeholder="Search.."/>
+                    <form 
+                        onSubmit={(e => {
+                            e.preventDefault();
+                            searchListings();
+                        })}>
+                        <input 
+                            type="text"
+                            className="searchbar" 
+                            placeholder="Search.."
+                            value={searchInput}
+                            onChange={e => {
+                                setSearchInput(e.target.value);
+                                console.log(searchInput);}}
+                        />
+                    </form>
                 </div>
                 <div className="listings">
                     {console.log("in div:", listings)}
