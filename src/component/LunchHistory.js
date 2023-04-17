@@ -4,11 +4,12 @@ import Listing from './Listing';
 
 export default function LunchHistory() {
 
-    const getListingsFromDB = async () => {
-        const result = await fetch("/.netlify/functions/restaurant");
-        const listings = await result.json();
-        console.log("Listings from DB", listings);
-        return listings;
+    const getListingsFromDB =  () => {
+        // const result = await fetch("/.netlify/functions/restaurant");
+        // const listings = await result.json();
+        // console.log("Listings from DB", listings);
+        return [{name: "test resto", address: "test address", phone: "test phone", went: true, rating: 1, upvotes: 3, downvotes: 2}];
+        //return listings;
     }
 
     // sample functions:
@@ -62,8 +63,11 @@ export default function LunchHistory() {
     }
 
     useEffect(() => {
+        console.log("use effect!!");
         const listings = getListingsFromDB();
-        setListings(listings);
+        console.log("use effect listings", listings);
+        setListings(Array.from(listings));
+        console.log("after setting listings", listings);
     }, []);
 
     //prepend body when modal is open
@@ -99,7 +103,9 @@ export default function LunchHistory() {
                     <input type="text" className="searchbar" placeholder="Search.."/>
                 </div>
                 <div className="listings">
-                    {(listings.filter((listing) => listing.went))
+                    {console.log("in div:", listings)}
+                    {
+                    (listings.filter((listing) => listing.went))
                                 .map((item) => 
                                     <Listing 
                                         key={item.address}
