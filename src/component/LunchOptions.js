@@ -5,6 +5,7 @@ import Listing from './Listing';
 
 export default function LunchOptions(){
     const [listings, setListings] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
     const [generateModal, setGenerateModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
     const [restoInfo, setRestoInfo] = useState({
@@ -12,21 +13,29 @@ export default function LunchOptions(){
         address: "",
         phonenumber:"",
         vegan: false,
-        pescetarian: false,
+        pescatarian: false,
     });
 
+    const searchListings = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = await result.json();
+        const searchResults = dbListings.filter(listing => (listing.name.toLowerCase()).includes(searchInput.toLowerCase()));
+        console.log("search results->", searchResults);
+        setListings(searchResults);
+    }
+
+    const getAndSetListingsFromDB = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = await result.json();
+        console.log("Listings from DB", dbListings);
+        setListings(Array.from(dbListings));
+    }
+
     useEffect(() => {
-        const getAndSetListingsFromDB = async () => {
-            const result = await fetch("/.netlify/functions/restaurant");
-            const dbListings = await result.json();
-            console.log("Listings from DB", dbListings);
-            setListings(Array.from(dbListings));
+        if (searchInput.length === 0) {
+            getAndSetListingsFromDB();
         }
-        console.log("use effect in options!");
-        getAndSetListingsFromDB();
-        console.log("after setting listings in options", listings);
-        // eslint-disable-next-line
-    }, []);
+    }, [searchInput]);
 
     const toggleModal = () => {
         setGenerateModal(!generateModal);
@@ -41,7 +50,7 @@ export default function LunchOptions(){
     const handleAddOption = (event) => {
        event.preventDefault();
        console.log(restoInfo);
-       setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
+       setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescatarian: false });
        setAddModal(!addModal);
     }
     const handleChange = (event) => {
@@ -69,14 +78,29 @@ export default function LunchOptions(){
         
         <div className="listing-container">
             <div className="searchbar-container">
-                <input type="text" className="searchbar" placeholder="Search.."/>
+                <form 
+                    onSubmit={(e => {
+                        e.preventDefault();
+                        searchListings();
+                    })}>
+                    <input 
+                        type="text"
+                        className="searchbar" 
+                        placeholder="Search.."
+                        value={searchInput}
+                        onChange={e => {
+                            setSearchInput(e.target.value);
+                            console.log(searchInput);
+                        }}
+                    />
+                </form>
             </div>
             <div className="listings">
                 {console.log("in div:", listings)}
                 {(listings.filter((listing) => !listing.went))
                             .map((item) => 
                                 <Listing 
-                                    key={item.address}
+                                    key={item._id}
                                     restaurantName={item.name}
                                     address={item.address} 
                                     phoneNumber={item.phone}
@@ -174,10 +198,10 @@ export default function LunchOptions(){
                             <div className="input-title">
                                 <input 
                                     type="checkbox"
-                                    name="pescetarian" 
-                                    value={restoInfo.pescetarian}
+                                    name="pescatarian" 
+                                    value={restoInfo.pescatarian}
                                     onChange={handleAdditionalInfo}/>
-                                <div className="add-modal-text">pescetarian</div>
+                                <div className="add-modal-text">pescatarian</div>
                             </div> 
                         </div>
                         
