@@ -63,16 +63,19 @@ export default function LunchHistory() {
         setListings(searchResults);
     }
 
+    const getAndSetListingsFromDB = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = await result.json();
+        console.log("Listings from DB", dbListings);
+        setListings(Array.from(dbListings));
+    }
+
     useEffect(() => {
-        const getAndSetListingsFromDB = async () => {
-            const result = await fetch("/.netlify/functions/restaurant");
-            const dbListings = await result.json();
-            console.log("Listings from DB", dbListings);
-            setListings(Array.from(dbListings));
+        if (searchInput.length === 0) {
+            getAndSetListingsFromDB();
         }
-        getAndSetListingsFromDB();
         // eslint-disable-next-line
-    }, []);
+    }, [searchInput]);
 
     //prepend body when modal is open
     if (modal) {
@@ -125,7 +128,7 @@ export default function LunchHistory() {
                     {(listings.filter((listing) => listing.went))
                                 .map((item) => 
                                     <Listing 
-                                        key={item.address}
+                                        key={item._id}
                                         restaurantName={item.name}
                                         address={item.address} 
                                         phoneNumber={item.phone}
