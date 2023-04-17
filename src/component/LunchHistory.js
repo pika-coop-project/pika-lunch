@@ -4,12 +4,11 @@ import Listing from './Listing';
 
 export default function LunchHistory() {
 
-    const getListingsFromDB =  () => {
-        // const result = await fetch("/.netlify/functions/restaurant");
-        // const listings = await result.json();
-        // console.log("Listings from DB", listings);
-        return [{name: "test resto", address: "test address", phone: "test phone", went: true, rating: 1, upvotes: 3, downvotes: 2}];
-        //return listings;
+    const getListingsFromDB = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const listings = await result.json();
+        console.log("Listings from DB", listings);
+        return listings;
     }
 
     // sample functions:
