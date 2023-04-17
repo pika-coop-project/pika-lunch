@@ -88,8 +88,6 @@ export default function LunchOptions(){
                                     downvotes={item.downvotes}
                                 />
                 )}
-                <Listing></Listing>
-                <Listing></Listing>
             </div>
 
             <div className="add-button-container">

@@ -70,9 +70,7 @@ export default function LunchHistory() {
             console.log("Listings from DB", dbListings);
             setListings(Array.from(dbListings));
         }
-        console.log("useeffect in lunch history!");
         getAndSetListingsFromDB();
-        console.log("after setting listings in lunch history useeffect", listings);
         // eslint-disable-next-line
     }, []);
 
@@ -139,8 +137,6 @@ export default function LunchHistory() {
                                         downvotes={item.downvotes}
                                     />
                     )}
-                    <Listing isHistory={true}></Listing>
-                    <Listing isHistory={true}></Listing>
                 </div>
             </div>
 
