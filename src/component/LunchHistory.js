@@ -60,12 +60,10 @@ export default function LunchHistory() {
             const dbListings = await result.json();
             console.log("Listings from DB", dbListings);
             setListings(Array.from(dbListings));
-            console.log("listings var set with:", listings);
-            //return listings;
         }
-        console.log("use effect!!");
+        console.log("useeffect in lunch history!");
         getAndSetListingsFromDB();
-        console.log("after setting listings in useeffect", listings);
+        console.log("after setting listings in lunch history useeffect", listings);
         // eslint-disable-next-line
     }, []);
 
@@ -103,8 +101,7 @@ export default function LunchHistory() {
                 </div>
                 <div className="listings">
                     {console.log("in div:", listings)}
-                    {
-                    (listings.filter((listing) => listing.went))
+                    {(listings.filter((listing) => listing.went))
                                 .map((item) => 
                                     <Listing 
                                         key={item.address}
@@ -119,8 +116,6 @@ export default function LunchHistory() {
                                         downvotes={item.downvotes}
                                     />
                     )}
-                    <Listing isHistory={true}></Listing>
-                    <Listing isHistory={true}></Listing>
                     <Listing isHistory={true}></Listing>
                     <Listing isHistory={true}></Listing>
                 </div>

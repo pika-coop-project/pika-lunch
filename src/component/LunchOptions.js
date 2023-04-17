@@ -1,9 +1,10 @@
 import './ListingCards.css';
 import './AddOptionModal.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Listing from './Listing';
 
 export default function LunchOptions(){
+    const [listings, setListings] = useState([]);
     const [generateModal, setGenerateModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
     const [restoInfo, setRestoInfo] = useState({
@@ -13,6 +14,19 @@ export default function LunchOptions(){
         vegan: false,
         pescetarian: false,
     });
+
+    useEffect(() => {
+        const getAndSetListingsFromDB = async () => {
+            const result = await fetch("/.netlify/functions/restaurant");
+            const dbListings = await result.json();
+            console.log("Listings from DB", dbListings);
+            setListings(Array.from(dbListings));
+        }
+        console.log("use effect in options!");
+        getAndSetListingsFromDB();
+        console.log("after setting listings in options", listings);
+        // eslint-disable-next-line
+    }, []);
 
     const toggleModal = () => {
         setGenerateModal(!generateModal);
@@ -58,8 +72,22 @@ export default function LunchOptions(){
                 <input type="text" className="searchbar" placeholder="Search.."/>
             </div>
             <div className="listings">
-                <Listing></Listing>
-                <Listing></Listing>
+                {console.log("in div:", listings)}
+                {(listings.filter((listing) => !listing.went))
+                            .map((item) => 
+                                <Listing 
+                                    key={item.address}
+                                    restaurantName={item.name}
+                                    address={item.address} 
+                                    phoneNumber={item.phone}
+                                    isPescatarian={item.pescatarian}
+                                    isVegan={item.vegan}
+                                    isHistory={item.went}
+                                    rating={item.rating}
+                                    upvotes={item.upvotes}
+                                    downvotes={item.downvotes}
+                                />
+                )}
                 <Listing></Listing>
                 <Listing></Listing>
             </div>
