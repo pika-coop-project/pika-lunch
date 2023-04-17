@@ -4,13 +4,6 @@ import Listing from './Listing';
 
 export default function LunchHistory() {
 
-    const getListingsFromDB = async () => {
-        const result = await fetch("/.netlify/functions/restaurant");
-        const listings = await result.json();
-        console.log("Listings from DB", listings);
-        return listings;
-    }
-
     // sample functions:
     const testGetFunc = async () => {
         const newGetRequest = await fetch("/.netlify/functions/restaurant");
@@ -61,12 +54,19 @@ export default function LunchHistory() {
         setModal(!modal);
     }
 
-    useEffect(async () => {
+    useEffect(() => {
+        const getAndSetListingsFromDB = async () => {
+            const result = await fetch("/.netlify/functions/restaurant");
+            const dbListings = await result.json();
+            console.log("Listings from DB", dbListings);
+            setListings(Array.from(dbListings));
+            console.log("listings var set with:", listings);
+            //return listings;
+        }
         console.log("use effect!!");
-        const listings = await getListingsFromDB();
-        console.log("use effect listings", listings);
-        setListings(Array.from(listings));
-        console.log("after setting listings", listings);
+        getAndSetListingsFromDB();
+        console.log("after setting listings in useeffect", listings);
+        // eslint-disable-next-line
     }, []);
 
     //prepend body when modal is open
