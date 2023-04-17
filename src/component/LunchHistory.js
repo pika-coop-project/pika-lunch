@@ -61,9 +61,9 @@ export default function LunchHistory() {
         setModal(!modal);
     }
 
-    useEffect(() => {
+    useEffect(async () => {
         console.log("use effect!!");
-        const listings = getListingsFromDB();
+        const listings = await getListingsFromDB();
         console.log("use effect listings", listings);
         setListings(Array.from(listings));
         console.log("after setting listings", listings);
