@@ -4,10 +4,11 @@ import Listing from './Listing';
 
 export default function LunchHistory() {
 
-    const getListings = async () => {
+    const getListingsFromDB = async () => {
         const result = await fetch("/.netlify/functions/restaurant");
         const listings = await result.json();
         console.log("Listings from DB", listings);
+        return listings;
     }
 
     // sample functions:
@@ -54,15 +55,16 @@ export default function LunchHistory() {
         console.log("DELETE request status code", deleteRequest.status);
     }
 
-
-    useEffect(() => {
-        getListings();
-    }, []);
-
+    const [listings, setListings] = useState([]);
     const [modal, setModal] = useState(false);
     const toggleModal = () => {
         setModal(!modal);
     }
+
+    useEffect(() => {
+        const listings = getListingsFromDB();
+        setListings(listings);
+    }, []);
 
     //prepend body when modal is open
     if (modal) {
@@ -97,6 +99,21 @@ export default function LunchHistory() {
                     <input type="text" className="searchbar" placeholder="Search.."/>
                 </div>
                 <div className="listings">
+                    {(listings.filter((listing) => listing.went))
+                                .map((item) => 
+                                    <Listing 
+                                        key={item.address}
+                                        restaurantName={item.name}
+                                        address={item.address} 
+                                        phoneNumber={item.phone}
+                                        isPescatarian={item.pescatarian}
+                                        isVegan={item.vegan}
+                                        isHistory={item.went}
+                                        rating={item.rating}
+                                        upvotes={item.upvotes}
+                                        downvotes={item.downvotes}
+                                    />
+                    )}
                     <Listing isHistory={true}></Listing>
                     <Listing isHistory={true}></Listing>
                     <Listing isHistory={true}></Listing>
