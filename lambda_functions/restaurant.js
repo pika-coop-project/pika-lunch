@@ -50,9 +50,9 @@ const updateDatabase = async (db, data) => {
     address: data.address,
   };
 
-  if (restaurantData.name && restaurantData.address) {
+  if (restaurantData.name) {
     const result = await db.collection("restaurant")
-      .updateOne({ name: restaurantData.name, address: restaurantData.address }, { $set: { "went": true } });
+      .updateOne({ name: restaurantData.name }, { $set: { "went": true } });
     console.log(`${result.matchedCount} document(s) matched the update query criteria`);
     console.log(`${result.modifiedCount} document(s) was/were updated`);
     return { statusCode: 200 };
