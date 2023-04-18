@@ -4,7 +4,7 @@ import RestaurantInfo from './listing/RestaurantInfo';
 import Rating from './listing/Rating';
 import Voting from './listing/Voting';
 
-const Listing = ({ id, restaurantName="Restaurant Name", address="Street Address, Vancouver", phoneNumber="123-456-7890", isVegan=true, isPescetarian=true, isHistory, rating, numRatings, upvotes, downvotes }) => {
+const Listing = ({ restaurantName="Restaurant Name", address="Street Address, Vancouver", phoneNumber="123-456-7890", isVegan=true, isPescetarian=true, isHistory, rating, numRatings, upvotes, downvotes }) => {
     if (isHistory) {
         return (
         <div className="listing listing-flex">
@@ -19,7 +19,7 @@ const Listing = ({ id, restaurantName="Restaurant Name", address="Street Address
     } else {
         return (
         <div className="listing listing-flex">
-            <Voting id={id} restaurantName={restaurantName} upvotes={upvotes} downvotes={downvotes} />
+            <Voting restaurantName={restaurantName} upvotes={upvotes} downvotes={downvotes} />
             <RestaurantInfo  
               address={address} 
               phoneNumber={phoneNumber} 

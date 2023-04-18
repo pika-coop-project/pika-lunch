@@ -1,7 +1,7 @@
 import React from 'react';
 import './Voting.css';
 
-export default function Voting ({ restaurantName, upvotes, downvotes, id }) {
+export default function Voting ({ restaurantName, upvotes, downvotes }) {
 
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
@@ -17,11 +17,9 @@ export default function Voting ({ restaurantName, upvotes, downvotes, id }) {
 
   const UpdateWentFunc = async () => {
     const updateRequest = await fetch("/.netlify/functions/restaurant", {
-      id: id,
       method: "PATCH",
       body: JSON.stringify({
       name: restaurantName,
-      went: true,
       }),
     });
   
