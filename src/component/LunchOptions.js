@@ -136,7 +136,6 @@ export default function LunchOptions({ increment }){
                                 />
                 )}
 
-                <Listing/>
             </div>
 
             <div className="add-button-container">
