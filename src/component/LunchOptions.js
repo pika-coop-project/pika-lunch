@@ -59,7 +59,8 @@ export default function LunchOptions(){
         setRestoInfo({...restoInfo, [event.target.name]: event.target.value});
     }
     const handleAdditionalInfo = (event) => {
-        setRestoInfo({...restoInfo, [event.target.name]: true});
+        const isChecked = event.target.checked;
+        setRestoInfo({...restoInfo, [event.target.name]: isChecked});
     }
 
     const addListingFunc = async () => {
