@@ -99,7 +99,21 @@ export default function LunchOptions(){
         
         <div className="listing-container">
             <div className="searchbar-container">
-                <input type="text" className="searchbar" placeholder="Search.."/>
+                <form 
+                    onSubmit={(e => {
+                        e.preventDefault();
+                        searchListings();
+                    })}>
+                    <input 
+                        type="text"
+                        className="searchbar" 
+                        placeholder="Search.."
+                        value={searchInput}
+                        onChange={e => {
+                            setSearchInput(e.target.value);
+                            console.log(searchInput);}}
+                    />
+                </form>
             </div>
             <div className="listings">
                 {(listings.filter((listing) => !listing.went))
