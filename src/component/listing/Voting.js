@@ -28,6 +28,36 @@ export default function Voting ({ restaurantName, upvotes, downvotes }) {
     location.reload();
   }
 
+  const UpdateUpvoteFunc = async () => {
+    const updateRequest = await fetch("/.netlify/functions/restaurant", {
+      method: "PATCH",
+      body: JSON.stringify({
+      name: restaurantName,
+      upvotes: upvotes+1,
+      downvotes: downvotes,
+      }),
+    });
+  
+    console.log("UPDATE request status code", updateRequest.status);
+    // eslint-disable-next-line
+    location.reload();
+  }
+
+  const UpdateDownvoteFunc = async () => {
+    const updateRequest = await fetch("/.netlify/functions/restaurant", {
+      method: "PATCH",
+      body: JSON.stringify({
+      name: restaurantName,
+      upvotes: upvotes,
+      downvotes: downvotes+1,
+      }),
+    });
+  
+    console.log("UPDATE request status code", updateRequest.status);
+    // eslint-disable-next-line
+    location.reload();
+  }
+
   return (
     <div className="voting-container">
       <div className="restaurant-name-and-voting">
@@ -40,11 +70,11 @@ export default function Voting ({ restaurantName, upvotes, downvotes }) {
 
      
         <div className="votes">
-          <button className="vote-button" onClick={() =>(alert('upvoted'))}>
+          <button className="vote-button" onClick={UpdateUpvoteFunc}>
             <i className="fas fa-thumbs-up fa-lg vote-icon"/>
           </button>
           <div className="votes">{upvotes}</div>
-          <button className="vote-button" onClick={() =>(alert('downvoted'))}>
+          <button className="vote-button" onClick={UpdateDownvoteFunc}>
             <i className="fas fa-thumbs-down fa-lg vote-icon"/>
           </button>
           <div className="votes">{downvotes}</div>
