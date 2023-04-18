@@ -2,6 +2,7 @@ import React from 'react';
 import './Voting.css';
 
 export default function Voting ({ restaurantName, upvotes, downvotes }) {
+
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
         method: "DELETE",
@@ -9,8 +10,9 @@ export default function Voting ({ restaurantName, upvotes, downvotes }) {
         name: restaurantName,
         }),
     });
-    getAndSetListingsFromDB();
     console.log("DELETE request status code", deleteRequest.status);
+    // eslint-disable-next-line
+    location.reload();
   }
 
   return (
