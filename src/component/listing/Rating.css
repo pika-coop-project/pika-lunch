@@ -84,3 +84,12 @@
 .dropdown:hover .rating-dropdown {
   background-color: #004c45;
 }
+
+.delete-listing-button {
+  border: none;
+  background: transparent;
+  margin-top: -14px;
+  margin-left: 10px;
+  color: #c3d8c9;
+  font-size: 16px;
+}

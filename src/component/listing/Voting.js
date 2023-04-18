@@ -24,6 +24,7 @@ const Voting = ({ restaurantName, upvotes, downvotes }) => {
             <i className="fas fa-thumbs-down fa-lg vote-icon"/>
           </button>
           <div className="votes">{downvotes}</div>
+          <button className="delete-listing-button" onClick={() =>(alert('downvoted'))}>x</button>
         </div>
       </div>
     </div>

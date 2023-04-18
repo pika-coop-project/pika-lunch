@@ -142,6 +142,7 @@ export default function LunchHistory() {
                     )}
                 </div>
             </div>
+            
 
             { modal && (
                 <div className="modal">
