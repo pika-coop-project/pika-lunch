@@ -3,7 +3,7 @@ import './AddOptionModal.css';
 import React, { useState, useEffect } from "react";
 import Listing from './Listing';
 
-export default function LunchOptions(){
+export default function LunchOptions({ increment }){
     const [listings, setListings] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [generateModal, setGenerateModal] = useState(false);
@@ -50,7 +50,7 @@ export default function LunchOptions(){
     const handleAddOption = (event) => {
        event.preventDefault();
        addListingFunc();
-       getAndSetListingsFromDB();
+       increment();
        setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
        setAddModal(!addModal);
     }
@@ -132,6 +132,7 @@ export default function LunchOptions(){
                                     numRatings={item.num_ratings}
                                     upvotes={item.upvotes}
                                     downvotes={item.downvotes}
+                                    increment={increment}
                                 />
                 )}
             </div>
