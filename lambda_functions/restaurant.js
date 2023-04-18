@@ -48,13 +48,23 @@ const updateDatabase = async (db, data) => {
   const restaurantData = {
     name: data.name,
     address: data.address,
+    rating: data.rating,
+    numRatings: data.numRatings,
+    upvotes: data.upvotes,
+    downvotes: data.downvotes
   };
 
-  if (restaurantData.name) {
+  if (restaurantData.name && typeof restaurantData.rating === 'number' && typeof restaurantData.numRatings === 'number') {
+    const result = await db.collection("restaurant")
+      .updateOne({ name: restaurantData.name }, { $set: { "rating": restaurantData.rating, "num_ratings": restaurantData.numRatings } });
+    return { statusCode: 200 };
+  } else if (restaurantData.name && typeof restaurantData.upvotes === 'number' && typeof restaurantData.downvotes === 'number') {
+    const result = await db.collection("restaurant")
+      .updateOne({ name: restaurantData.name }, { $set: { "upvotes": restaurantData.upvotes, "downvotes": restaurantData.downvotes } });
+    return { statusCode: 200 };
+  } else if (restaurantData.name) {
     const result = await db.collection("restaurant")
       .updateOne({ name: restaurantData.name }, { $set: { "went": true } });
-    console.log(`${result.matchedCount} document(s) matched the update query criteria`);
-    console.log(`${result.modifiedCount} document(s) was/were updated`);
     return { statusCode: 200 };
   } else {
     return { statusCode: 404 };

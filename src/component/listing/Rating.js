@@ -4,7 +4,7 @@ import star from '../../asset/img/star.svg';
 
 
 
-export default function Rating ({ restaurantName, rating }) {
+export default function Rating ({ restaurantName, rating, numRatings }) {
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
         method: "DELETE",
@@ -17,6 +17,22 @@ export default function Rating ({ restaurantName, rating }) {
     // eslint-disable-next-line
     location.reload();
   }
+
+  const updateRating = async (newRating) => {
+    const newNumRating = numRatings + 1;
+    const newAvgRating = (rating * numRatings + newRating) / newNumRating;
+    const updateRequest = await fetch("/.netlify/functions/restaurant", {
+        method: "PATCH",
+        body: JSON.stringify({
+        name: restaurantName,
+        rating: newAvgRating,
+        numRatings: newNumRating
+        }),
+    });
+    console.log("UPDATE rating status code", updateRequest.status);
+    // eslint-disable-next-line
+    location.reload();
+}
 
   return (
     <div className="rating-container">
@@ -32,11 +48,11 @@ export default function Rating ({ restaurantName, rating }) {
             <i className="fas fa-chevron-down fa-xs arrow-down-icon"/>
           </button>
           <div className="dropdown-content">
-            <button className="rating-option" onClick={()=>{alert('clicked 1')}}>1</button>
-            <button className="rating-option" onClick={()=>{alert('clicked 2')}}>2</button>
-            <button className="rating-option" onClick={()=>{alert('clicked 3')}}>3</button>
-            <button className="rating-option" onClick={()=>{alert('clicked 4')}}>4</button>
-            <button className="rating-option" onClick={()=>{alert('clicked 5')}}>5</button>
+            <button className="rating-option" onClick={()=>{updateRating(1)}}>1</button>
+            <button className="rating-option" onClick={()=>{updateRating(2)}}>2</button>
+            <button className="rating-option" onClick={()=>{updateRating(3)}}>3</button>
+            <button className="rating-option" onClick={()=>{updateRating(4)}}>4</button>
+            <button className="rating-option" onClick={()=>{updateRating(5)}}>5</button>
           </div>
         </div>
         <button className="delete-listing-button" onClick={DeleteListingFunc}>x</button>
