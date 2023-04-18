@@ -81,7 +81,6 @@ export default function LunchOptions(){
         });
         console.log("post request: ", postRequest);
         console.log("POST request status code", postRequest.status);
-    
     }
 
     //prepend body when modal is open

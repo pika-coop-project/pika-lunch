@@ -9,9 +9,8 @@ export default function Voting ({ restaurantName, upvotes, downvotes }) {
         name: restaurantName,
         }),
     });
-    
+    getAndSetListingsFromDB();
     console.log("DELETE request status code", deleteRequest.status);
-
   }
 
   return (
