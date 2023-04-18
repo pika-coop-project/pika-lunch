@@ -26,7 +26,7 @@ export default function LunchOptions(){
     }
     const handleAddOption = (event) => {
        event.preventDefault();
-       testPostFunc();
+       addListingFunc();
        setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
        setAddModal(!addModal);
     }
@@ -38,7 +38,7 @@ export default function LunchOptions(){
         setRestoInfo({...restoInfo, [event.target.name]: true});
     }
 
-    const testPostFunc = async () => {
+    const addListingFunc = async () => {
         const postRequest = await fetch("/.netlify/functions/restaurant", {
             method: "POST",
             body: JSON.stringify({
