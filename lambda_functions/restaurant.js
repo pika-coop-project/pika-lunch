@@ -60,11 +60,11 @@ const updateDatabase = async (db, data) => {
   console.log(" typeof upvotes", typeof restaurantData.upvotes);
   console.log("typeof downvotes", typeof restaurantData.downvotes);
 
-  if (restaurantData.name && typeof restaurantData.rating === 'number' && typeof restaurantData.numRatings === 'number') {
+  if (restaurantData.name && restaurantData.rating && restaurantData.numRatings) {
     const result = await db.collection("restaurant")
       .updateOne({ name: restaurantData.name }, { $set: { "rating": restaurantData.rating, "num_ratings": restaurantData.numRatings } });
-    return { statusCode: 200, rating: (typeof restaurantData.rating), numRatings: (typeof restaurantData.numRatings) };
-  } else if (restaurantData.name && typeof restaurantData.upvotes === 'number' && typeof restaurantData.downvotes === 'number') {
+    return { statusCode: 200 };
+  } else if (restaurantData.name && (restaurantData.upvotes || restaurantData.upvotes === 0) && (restaurantData.downvotes || restaurantData.downvotes === 0)) {
     const result = await db.collection("restaurant")
       .updateOne({ name: restaurantData.name }, { $set: { "upvotes": restaurantData.upvotes, "downvotes": restaurantData.downvotes } });
     return { statusCode: 200 };
