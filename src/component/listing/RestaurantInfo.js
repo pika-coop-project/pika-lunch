@@ -10,8 +10,8 @@ const RestaurantInfo = ({ address, phoneNumber, isVegan, isPescetarian }) => {
         <div className="phone-number">{phoneNumber}</div>
       </div>
       <div className="dietary-icons">
-        <i className="fas fa-carrot fa-lg dietary-icon"/>
-        <i className="fas fa-fish fa-lg dietary-icon"/>
+        {isVegan ? <i className="fas fa-carrot fa-lg dietary-icon"/> : <div/>}
+        {isPescetarian ? <i className="fas fa-fish fa-lg dietary-icon"/> : <div/>}
       </div>
     </div>
   )
