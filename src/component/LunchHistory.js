@@ -132,7 +132,7 @@ export default function LunchHistory() {
                                         restaurantName={item.name}
                                         address={item.address} 
                                         phoneNumber={item.phone}
-                                        isPescatarian={item.pescatarian}
+                                        isPescetarian={item.pescetarian}
                                         isVegan={item.vegan}
                                         isHistory={item.went}
                                         rating={item.rating}

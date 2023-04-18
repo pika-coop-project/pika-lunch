@@ -1,7 +1,7 @@
 import React from 'react';
 import './RestaurantInfo.css';
 
-const RestaurantInfo = ({ address, phoneNumber, isVegan, isPescatarian }) => {
+const RestaurantInfo = ({ address, phoneNumber, isVegan, isPescetarian }) => {
 
   return (
     <div className="listing-info">

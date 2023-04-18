@@ -1,9 +1,11 @@
 import './ListingCards.css';
 import './AddOptionModal.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Listing from './Listing';
 
 export default function LunchOptions(){
+    const [listings, setListings] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
     const [generateModal, setGenerateModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
     const [restoInfo, setRestoInfo] = useState({
@@ -13,6 +15,27 @@ export default function LunchOptions(){
         vegan: false,
         pescetarian: false,
     });
+
+    const searchListings = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = await result.json();
+        const searchResults = dbListings.filter(listing => (listing.name.toLowerCase()).includes(searchInput.toLowerCase()));
+        console.log("search results->", searchResults);
+        setListings(searchResults);
+    }
+
+    const getAndSetListingsFromDB = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = await result.json();
+        console.log("Listings from DB", dbListings);
+        setListings(Array.from(dbListings));
+    }
+
+    useEffect(() => {
+        if (searchInput.length === 0) {
+            getAndSetListingsFromDB();
+        }
+    }, [searchInput]);
 
     const toggleModal = () => {
         setGenerateModal(!generateModal);
@@ -44,12 +67,17 @@ export default function LunchOptions(){
             body: JSON.stringify({
             name: restoInfo.name,
             address: restoInfo.address,
-            phonenumber: restoInfo.phonenumber,
+            phone: restoInfo.phonenumber,
             vegan: restoInfo.vegan,
             pescetarian: restoInfo.pescetarian,
+            rating: 0,
+            num_ratings: 0,
+            upvotes: 0,
+            downvotes: 0,
+            went: false
             }),
         });
-        
+        console.log("post request: ", postRequest);
         console.log("POST request status code", postRequest.status);
     }
 
@@ -74,10 +102,22 @@ export default function LunchOptions(){
                 <input type="text" className="searchbar" placeholder="Search.."/>
             </div>
             <div className="listings">
-                <Listing></Listing>
-                <Listing></Listing>
-                <Listing></Listing>
-                <Listing></Listing>
+                {(listings.filter((listing) => !listing.went))
+                            .map((item) => 
+                                <Listing 
+                                    key={item._id}
+                                    restaurantName={item.name}
+                                    address={item.address} 
+                                    phoneNumber={item.phone}
+                                    isPescetarian={item.pescetarian}
+                                    isVegan={item.vegan}
+                                    isHistory={item.went}
+                                    rating={item.rating}
+                                    numRatings={item.num_ratings}
+                                    upvotes={item.upvotes}
+                                    downvotes={item.downvotes}
+                                />
+                )}
             </div>
 
             <div className="add-button-container">
