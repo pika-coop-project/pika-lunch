@@ -11,7 +11,7 @@ export default function Voting ({ restaurantName, upvotes, downvotes }) {
     });
     
     console.log("DELETE request status code", deleteRequest.status);
-    location.reload();
+
   }
 
   return (

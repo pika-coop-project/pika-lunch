@@ -14,7 +14,7 @@ export default function Rating ({ restaurantName, rating }) {
     });
     
     console.log("DELETE request status code", deleteRequest.status);
-    location.reload();
+
   }
 
   return (

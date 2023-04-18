@@ -93,3 +93,6 @@
   color: #c3d8c9;
   font-size: 16px;
 }
+.delete-listing-button:hover {
+  color: #004c45;
+}
