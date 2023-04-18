@@ -63,15 +63,15 @@ const updateDatabase = async (db, data) => {
   if (restaurantData.name && restaurantData.rating && restaurantData.numRatings) {
     const result = await db.collection("restaurant")
       .updateOne({ name: restaurantData.name }, { $set: { "rating": restaurantData.rating, "num_ratings": restaurantData.numRatings } });
-    return { statusCode: 200 };
+    return { statusCode: 101 };
   } else if (restaurantData.name && (restaurantData.upvotes || restaurantData.upvotes === 0) && (restaurantData.downvotes || restaurantData.downvotes === 0)) {
     const result = await db.collection("restaurant")
       .updateOne({ name: restaurantData.name }, { $set: { "upvotes": restaurantData.upvotes, "downvotes": restaurantData.downvotes } });
-    return { statusCode: 200 };
+    return { statusCode: 102 };
   } else if (restaurantData.name) {
     const result = await db.collection("restaurant")
       .updateOne({ name: restaurantData.name }, { $set: { "went": true } });
-    return { statusCode: 200 };
+    return { statusCode: 103 };
   } else {
     return { statusCode: 404 };
   }
