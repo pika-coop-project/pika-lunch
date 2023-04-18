@@ -5,6 +5,7 @@ import LunchHistory from './component/LunchHistory';
 import LunchOptions from './component/LunchOptions';
 
 function App() {
+  // eslint-disable-next-line
   const [update, setUpdate] = useState(0);
   const increment = () => {setUpdate(u => u + 1)};
 
