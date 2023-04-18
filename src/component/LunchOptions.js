@@ -50,7 +50,7 @@ export default function LunchOptions({ increment }){
     const handleAddOption = (event) => {
        event.preventDefault();
        addListingFunc();
-       getAndSetListingsFromDB();
+       increment();
        setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
        setAddModal(!addModal);
     }
