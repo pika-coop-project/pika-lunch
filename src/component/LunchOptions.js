@@ -50,6 +50,7 @@ export default function LunchOptions(){
     const handleAddOption = (event) => {
        event.preventDefault();
        addListingFunc();
+       getAndSetListingsFromDB();
        setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
        setAddModal(!addModal);
     }
