@@ -30,8 +30,10 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
         }),
     });
     console.log("UPDATE rating status code", updateRequest.status);
+    console.log("UPDATE typeof rating", updateRequest.rating);
+    console.log("UPDATE typeof num rating", updateRequest.numRatings);
     // eslint-disable-next-line
-    location.reload();
+    // location.reload();
 }
 
   return (
