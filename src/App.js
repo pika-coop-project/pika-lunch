@@ -1,10 +1,13 @@
+import React, { useState } from 'react';
 import logo from './asset/img/logo.svg';
 import './App.css';
-import './component/LunchHistory'
 import LunchHistory from './component/LunchHistory';
 import LunchOptions from './component/LunchOptions';
 
 function App() {
+  const [update, setUpdate] = useState(0);
+  const increment = () => {setUpdate(u => u + 1)};
+
   return (
     <div className="App">
       <div className="app-header">
@@ -17,8 +20,8 @@ function App() {
       </div>
       
       <div className="listing-cards">
-        <LunchHistory />
-        <LunchOptions />
+        <LunchHistory increment={increment} />
+        <LunchOptions increment={increment} />
       </div>
       
         
