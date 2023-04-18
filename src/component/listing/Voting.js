@@ -1,7 +1,18 @@
 import React from 'react';
 import './Voting.css';
 
-const Voting = ({ restaurantName, upvotes, downvotes }) => {
+export default function Voting ({ restaurantName, upvotes, downvotes }) {
+  const DeleteListingFunc = async () => {
+    const deleteRequest = await fetch("/.netlify/functions/restaurant", {
+        method: "DELETE",
+        body: JSON.stringify({
+        name: restaurantName,
+        }),
+    });
+    
+    console.log("DELETE request status code", deleteRequest.status);
+    location.reload();
+  }
 
   return (
     <div className="voting-container">
@@ -24,11 +35,10 @@ const Voting = ({ restaurantName, upvotes, downvotes }) => {
             <i className="fas fa-thumbs-down fa-lg vote-icon"/>
           </button>
           <div className="votes">{downvotes}</div>
-          <button className="delete-listing-button" onClick={() =>(alert('downvoted'))}>x</button>
+          <button className="delete-listing-button" onClick={DeleteListingFunc}>x</button>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Voting
