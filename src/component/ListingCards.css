@@ -1,17 +1,19 @@
 .listing-container {
   background-color: #d9f0df;
   width: 590px;
-  height: 60vh;
+  height: 62vh;
   border-radius: 26px;
   display: flex;
   flex-direction: column;
   padding-right: 16px;
+  padding-bottom: 8px;
 }
 
 .listings {
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #c3d8c9;
+  min-height: 50vh;
 }
 
 .searchbar-container {

@@ -135,6 +135,8 @@ export default function LunchOptions({ increment }){
                                     increment={increment}
                                 />
                 )}
+
+                <Listing/>
             </div>
 
             <div className="add-button-container">
@@ -142,7 +144,6 @@ export default function LunchOptions({ increment }){
                     <i className="fas fa-plus fa-2x"/>
                 </button>
             </div>
-            
         </div>
 
         { generateModal && (
