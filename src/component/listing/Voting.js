@@ -15,13 +15,26 @@ export default function Voting ({ restaurantName, upvotes, downvotes }) {
     location.reload();
   }
 
+  const UpdateWentFunc = async () => {
+    const updateRequest = await fetch("/.netlify/functions/restaurant", {
+      method: "PATCH",
+      body: JSON.stringify({
+      name: restaurantName,
+      went: true,
+      }),
+    });
+  
+    console.log("UPDATE request status code", updateRequest.status);
+    // eslint-disable-next-line
+    location.reload();
+  }
+
   return (
     <div className="voting-container">
       <div className="restaurant-name-and-voting">
-
         <div className="name-container">
         <div className="restaurant-name">{restaurantName}</div>
-        <button className="went-listing-button" onClick={() =>(alert('upvoted'))}>
+        <button className="went-listing-button" onClick={UpdateWentFunc}>
           <i className="fas fa-check fa-lg"/>
         </button>
       </div>

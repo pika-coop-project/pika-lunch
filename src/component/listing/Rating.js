@@ -14,7 +14,8 @@ export default function Rating ({ restaurantName, rating }) {
     });
     
     console.log("DELETE request status code", deleteRequest.status);
-
+    // eslint-disable-next-line
+    location.reload();
   }
 
   return (
