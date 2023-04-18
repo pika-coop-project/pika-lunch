@@ -1,11 +1,9 @@
 import './ListingCards.css';
 import './AddOptionModal.css';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Listing from './Listing';
 
 export default function LunchOptions(){
-    const [listings, setListings] = useState([]);
-    const [searchInput, setSearchInput] = useState('');
     const [generateModal, setGenerateModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
     const [restoInfo, setRestoInfo] = useState({
@@ -13,29 +11,8 @@ export default function LunchOptions(){
         address: "",
         phonenumber:"",
         vegan: false,
-        pescatarian: false,
+        pescetarian: false,
     });
-
-    const searchListings = async () => {
-        const result = await fetch("/.netlify/functions/restaurant");
-        const dbListings = await result.json();
-        const searchResults = dbListings.filter(listing => (listing.name.toLowerCase()).includes(searchInput.toLowerCase()));
-        console.log("search results->", searchResults);
-        setListings(searchResults);
-    }
-
-    const getAndSetListingsFromDB = async () => {
-        const result = await fetch("/.netlify/functions/restaurant");
-        const dbListings = await result.json();
-        console.log("Listings from DB", dbListings);
-        setListings(Array.from(dbListings));
-    }
-
-    useEffect(() => {
-        if (searchInput.length === 0) {
-            getAndSetListingsFromDB();
-        }
-    }, [searchInput]);
 
     const toggleModal = () => {
         setGenerateModal(!generateModal);
@@ -49,15 +26,31 @@ export default function LunchOptions(){
     }
     const handleAddOption = (event) => {
        event.preventDefault();
-       console.log(restoInfo);
-       setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescatarian: false });
+       testPostFunc();
+       setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
        setAddModal(!addModal);
     }
+
     const handleChange = (event) => {
         setRestoInfo({...restoInfo, [event.target.name]: event.target.value});
     }
     const handleAdditionalInfo = (event) => {
         setRestoInfo({...restoInfo, [event.target.name]: true});
+    }
+
+    const testPostFunc = async () => {
+        const postRequest = await fetch("/.netlify/functions/restaurant", {
+            method: "POST",
+            body: JSON.stringify({
+            name: restoInfo.name,
+            address: restoInfo.address,
+            phonenumber: restoInfo.phonenumber,
+            vegan: restoInfo.vegan,
+            pescetarian: restoInfo.pescetarian,
+            }),
+        });
+        
+        console.log("POST request status code", postRequest.status);
     }
 
     //prepend body when modal is open
@@ -78,40 +71,13 @@ export default function LunchOptions(){
         
         <div className="listing-container">
             <div className="searchbar-container">
-                <form 
-                    onSubmit={(e => {
-                        e.preventDefault();
-                        searchListings();
-                    })}>
-                    <input 
-                        type="text"
-                        className="searchbar" 
-                        placeholder="Search.."
-                        value={searchInput}
-                        onChange={e => {
-                            setSearchInput(e.target.value);
-                            console.log(searchInput);
-                        }}
-                    />
-                </form>
+                <input type="text" className="searchbar" placeholder="Search.."/>
             </div>
             <div className="listings">
-                {console.log("in div:", listings)}
-                {(listings.filter((listing) => !listing.went))
-                            .map((item) => 
-                                <Listing 
-                                    key={item._id}
-                                    restaurantName={item.name}
-                                    address={item.address} 
-                                    phoneNumber={item.phone}
-                                    isPescatarian={item.pescatarian}
-                                    isVegan={item.vegan}
-                                    isHistory={item.went}
-                                    rating={item.rating}
-                                    upvotes={item.upvotes}
-                                    downvotes={item.downvotes}
-                                />
-                )}
+                <Listing></Listing>
+                <Listing></Listing>
+                <Listing></Listing>
+                <Listing></Listing>
             </div>
 
             <div className="add-button-container">
@@ -198,10 +164,10 @@ export default function LunchOptions(){
                             <div className="input-title">
                                 <input 
                                     type="checkbox"
-                                    name="pescatarian" 
-                                    value={restoInfo.pescatarian}
+                                    name="pescetarian" 
+                                    value={restoInfo.pescetarian}
                                     onChange={handleAdditionalInfo}/>
-                                <div className="add-modal-text">pescatarian</div>
+                                <div className="add-modal-text">pescetarian</div>
                             </div> 
                         </div>
                         
