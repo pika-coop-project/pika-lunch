@@ -73,8 +73,6 @@ export default function LunchHistory({ increment }) {
             vegan: randomListing.vegan,
             pescetarian: randomListing.pescetarian,
         });
-        console.log("history listings from DB", randomListing);
-        console.log("random resto: ", randomResto);
         setModal(true);
     }
 

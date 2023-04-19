@@ -15,6 +15,29 @@ export default function LunchOptions({ increment }){
         vegan: false,
         pescetarian: false,
     });
+    const [randomResto, setRandomResto] = useState({
+        name: "",
+        address: "",
+        phonenumber:"",
+        vegan: false,
+        pescetarian: false,
+    });
+    const showRandomResto = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = Array.from(await result.json());
+        const options = dbListings.filter(listing => !listing.went);
+        console.log("option listings from DB", options);
+        const randomListing = options[Math.floor(Math.random() * options.length)];
+        setRandomResto({
+            name: randomListing.name,
+            address: randomListing.address,
+            phonenumber: randomListing.phone,
+            vegan: randomListing.vegan,
+            pescetarian: randomListing.pescetarian,
+        });
+        console.log("random resto: ", randomResto);
+        setGenerateModal(true);
+    }
 
     const searchListings = async () => {
         const result = await fetch("/.netlify/functions/restaurant");
@@ -37,9 +60,6 @@ export default function LunchOptions({ increment }){
         }
     }, [searchInput]);
 
-    const toggleModal = () => {
-        setGenerateModal(!generateModal);
-    }
     const handleWent = () => {
         alert('went clicked');
     }
@@ -94,7 +114,7 @@ export default function LunchOptions({ increment }){
     <div className="container">
         <div className="listings-header">
             <div className="listings-title">Lunch Options</div>
-            <button className="generate-button" onClick={toggleModal}>
+            <button className="generate-button" onClick={showRandomResto}>
                 <i className="fas fa-sync-alt fa-lg"/>
             </button>
         </div>
@@ -148,19 +168,19 @@ export default function LunchOptions({ increment }){
         { generateModal && (
             <div className="modal">
                 <div className="modal-content">
-                    <div className="generate-title">Saku</div>
-                    <div className="generate-text address">1588 Robson St, Vancouver, BC V6G 2G5</div>
-                    <div className="generate-text phone">(778) 379-5872</div>
+                    <div className="generate-title">{randomResto.name}</div>
+                    <div className="generate-text address">{randomResto.address}</div>
+                    <div className="generate-text phone">{randomResto.phonenumber}</div>
                     <div className="generate-details">
                         <div className="generate-dietary">
-                            <i className="fas fa-carrot fa-lg dietary-icons"/>
-                            <i className="fas fa-fish fa-lg"/>
+                            {randomResto.vegan ? <i className="fas fa-carrot fa-lg dietary-icons"/> : <div/>}
+                            {randomResto.pescetarian ? <i className="fas fa-fish fa-lg"/> : <div/>}
                         </div>
                         <button onClick={handleWent} className="went-button">
                             <i className="fas fa-check fa-lg"/>
                         </button>
                     </div>
-                    <button className="close-modal" onClick={toggleModal}>x</button>
+                    <button className="close-modal" onClick={()=>{setGenerateModal(false)}}>x</button>
                 </div>
             </div> 
         )}
