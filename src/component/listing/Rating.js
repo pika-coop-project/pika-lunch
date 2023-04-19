@@ -21,6 +21,11 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
   const updateRating = async (newRating) => {
     const newNumRating = numRatings + 1;
     const newAvgRating = (rating * numRatings + newRating) / newNumRating;
+    console.log(JSON.stringify({
+      name: restaurantName,
+      rating: newAvgRating,
+      numRatings: newNumRating
+      }));
     const updateRequest = await fetch("/.netlify/functions/restaurant", {
         method: "PATCH",
         body: JSON.stringify({
@@ -29,6 +34,7 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
         numRatings: newNumRating
         }),
     });
+    console.log("returned after fetch->", updateRequest);
     console.log("UPDATE rating status code", updateRequest.status);
     // eslint-disable-next-line
     // location.reload();

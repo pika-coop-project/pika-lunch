@@ -54,12 +54,6 @@ const updateDatabase = async (db, data) => {
     downvotes: data.downvotes
   };
 
-  console.log(" typeof rating", typeof restaurantData.rating);
-  console.log("numRatings", typeof restaurantData.numRatings);
-  
-  console.log(" typeof upvotes", typeof restaurantData.upvotes);
-  console.log("typeof downvotes", typeof restaurantData.downvotes);
-
   if (restaurantData.name && restaurantData.rating && restaurantData.numRatings) {
     const result = await db.collection("restaurant")
       .updateOne({ name: restaurantData.name }, { $set: { "rating": restaurantData.rating, "num_ratings": restaurantData.numRatings } });
