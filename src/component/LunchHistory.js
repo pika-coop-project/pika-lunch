@@ -61,8 +61,9 @@ export default function LunchHistory({ increment }) {
     const [modal, setModal] = useState(false);
     const showRandomResto = async () => {
         const result = await fetch("/.netlify/functions/restaurant");
-        const dbListings = Array.from(result.json());
+        const dbListings = Array.from(await result.json());
         const history = dbListings.filter(listing => listing.went);
+        console.log("history listings from DB", history);
         const randomListing = history[Math.floor(Math.random() * history.length)];
         setRandomResto({
             name: randomListing.name,
@@ -72,7 +73,7 @@ export default function LunchHistory({ increment }) {
             vegan: randomListing.vegan,
             pescetarian: randomListing.pescetarian,
         });
-        console.log("history listings from DB", history);
+        console.log("history listings from DB", randomListing);
         console.log("random resto: ", randomResto);
         setModal(true);
     }
