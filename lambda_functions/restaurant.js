@@ -33,10 +33,9 @@ const queryDatabase = async (db) => {
 const pushToDatabase = async (db, data) => {
     const restaurantData = {
       name: data.name,
-      address: data.address,
     };
   
-    if (restaurantData.name && restaurantData.address) {
+    if (restaurantData.name) {
       await db.collection("restaurant").insertMany([data]);
       return { statusCode: 201 };
     } else {
