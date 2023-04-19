@@ -30,6 +30,7 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
         numRatings: newNumRating,
         }),
     });
+    console.log("UPDATE rating status code", updateRequest.status);
     // eslint-disable-next-line
     location.reload();
 }

@@ -91,18 +91,6 @@ export default function LunchHistory({ increment }) {
                 <button className="generate-button" onClick={toggleModal}>
                     <i className="fas fa-sync-alt fa-lg"/>
                 </button>
-                <button className="generate-button" onClick={testPostFunc}>
-                    add
-                </button>
-                <button className="generate-button" onClick={testGetFunc}>
-                    view
-                </button>
-                <button className="generate-button" onClick={testUpdateFunc}>
-                    update to went
-                </button>
-                <button className="generate-button" onClick={testDeleteFunc}>
-                    delete
-                </button>
             </div>
 
             <div className="listing-container">
