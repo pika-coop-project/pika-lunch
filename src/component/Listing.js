@@ -4,7 +4,7 @@ import RestaurantInfo from './listing/RestaurantInfo';
 import Rating from './listing/Rating';
 import Voting from './listing/Voting';
 
-const Listing = ({ restaurantName="Restaurant Name", address="Street Address, Vancouver", phoneNumber="123-456-7890", isVegan=true, isPescetarian=true, isHistory, rating, numRatings, upvotes, downvotes, increment }) => {
+const Listing = ({ restaurantName, address, phoneNumber, isVegan, isPescetarian, isHistory, rating, numRatings, upvotes, downvotes, increment }) => {
 
     if (isHistory) {
         return (

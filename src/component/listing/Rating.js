@@ -26,28 +26,19 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
     console.log("num rating", numRatings);
     console.log("new num ratings", newNumRating);
     console.log("new avg rating", newAvgRating);
-    console.log(JSON.stringify({
-      name: restaurantName,
-      rating: newAvgRating,
-      numRatings: newNumRating,
-      }));
-    console.log(JSON.stringify({
-      name: restaurantName,
-      rating: (rating * numRatings + newRating)/(numRatings+1),
-      numRatings: numRatings+1,
-      }));
+
     const updateRequest = await fetch("/.netlify/functions/restaurant", {
         method: "PATCH",
         body: JSON.stringify({
         name: restaurantName,
-        rating: (rating * numRatings + newRating)/(numRatings+1),
-        numRatings: numRatings+1,
+        rating: newAvgRating,
+        numRatings: newNumRating,
         }),
     });
     console.log("returned after fetch->", updateRequest);
     console.log("UPDATE rating status code", updateRequest.status);
     // eslint-disable-next-line
-    // location.reload();
+    location.reload();
 }
 
   return (
