@@ -163,7 +163,7 @@ export default function LunchHistory({ increment }) {
                     <div className="modal-content">
                         <div className="generate-text rating">
                             <i className="fas fa-star fa-sm star"/>
-                            {randomResto.rating}
+                            {Math.round(randomResto.rating*10)/10}
                         </div>
                         <div className="generate-title">{randomResto.name}</div>
                         <div className="generate-text address">{randomResto.address}</div>
