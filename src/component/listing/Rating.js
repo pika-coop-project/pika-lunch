@@ -21,11 +21,6 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
   const updateRating = async (newRating) => {
     const newNumRating = numRatings + 1;
     const newAvgRating = (rating * numRatings + newRating) / newNumRating;
-    console.log("new rating", newRating);
-    console.log("rating", rating);
-    console.log("num rating", numRatings);
-    console.log("new num ratings", newNumRating);
-    console.log("new avg rating", newAvgRating);
 
     const updateRequest = await fetch("/.netlify/functions/restaurant", {
         method: "PATCH",
@@ -35,8 +30,6 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
         numRatings: newNumRating,
         }),
     });
-    console.log("returned after fetch->", updateRequest);
-    console.log("UPDATE rating status code", updateRequest.status);
     // eslint-disable-next-line
     location.reload();
 }
@@ -46,7 +39,7 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
       <div className="restaurant-name-and-rating">
         <div className="restaurant-name">{restaurantName}</div>
         <img src={star} className="star-icon" alt="star icon" />
-        <div className="restaurant-rating-number">{rating}</div>
+        <div className="restaurant-rating-number">{Math.round(rating*10)/10}</div>
       </div>
       <div className="addRating-close">
         <div className="dropdown">
