@@ -21,17 +21,24 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
   const updateRating = async (newRating) => {
     const newNumRating = numRatings + 1;
     const newAvgRating = (rating * numRatings + newRating) / newNumRating;
+    console.log("new num ratings", newNumRating);
+    console.log("new avg rating", newAvgRating);
     console.log(JSON.stringify({
       name: restaurantName,
       rating: newAvgRating,
-      numRatings: newNumRating
+      numRatings: newNumRating,
+      }));
+    console.log(JSON.stringify({
+      name: restaurantName,
+      rating: (rating * numRatings + newRating)/(numRatings+1),
+      numRatings: numRatings+1,
       }));
     const updateRequest = await fetch("/.netlify/functions/restaurant", {
         method: "PATCH",
         body: JSON.stringify({
         name: restaurantName,
-        rating: newAvgRating,
-        numRatings: newNumRating
+        rating: (rating * numRatings + newRating)/(numRatings+1),
+        numRatings: numRatings+1,
         }),
     });
     console.log("returned after fetch->", updateRequest);
