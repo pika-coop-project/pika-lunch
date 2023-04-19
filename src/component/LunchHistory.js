@@ -50,9 +50,31 @@ export default function LunchHistory({ increment }) {
 
     const [listings, setListings] = useState([]);
     const [searchInput, setSearchInput] = useState('');
+    const [randomResto, setRandomResto] = useState({
+        name: "",
+        address: "",
+        phonenumber:"",
+        rating: 0,
+        vegan: false,
+        pescetarian: false,
+    });
     const [modal, setModal] = useState(false);
-    const toggleModal = () => {
-        setModal(!modal);
+    const showRandomResto = async () => {
+        const result = await fetch("/.netlify/functions/restaurant");
+        const dbListings = Array.from(result.json());
+        const history = dbListings.filter(listing => listing.went);
+        const randomListing = history[Math.floor(Math.random() * history.length)];
+        setRandomResto({
+            name: randomListing.name,
+            address: randomListing.address,
+            phonenumber: randomListing.phone,
+            rating: randomListing.rating,
+            vegan: randomListing.vegan,
+            pescetarian: randomListing.pescetarian,
+        });
+        console.log("history listings from DB", history);
+        console.log("random resto: ", randomResto);
+        setModal(true);
     }
 
     const searchListings = async () => {
@@ -88,7 +110,7 @@ export default function LunchHistory({ increment }) {
         <div className="container">
             <div className="listings-header">
                 <div className="listings-title">Lunch History</div>
-                <button className="generate-button" onClick={toggleModal}>
+                <button className="generate-button" onClick={showRandomResto}>
                     <i className="fas fa-sync-alt fa-lg"/>
                 </button>
             </div>
@@ -140,18 +162,18 @@ export default function LunchHistory({ increment }) {
                     <div className="modal-content">
                         <div className="generate-text rating">
                             <i className="fas fa-star fa-sm star"/>
-                            9.0
+                            {randomResto.rating}
                         </div>
-                        <div className="generate-title">Saku</div>
-                        <div className="generate-text address">1588 Robson St, Vancouver, BC V6G 2G5</div>
-                        <div className="generate-text phone">(778) 379-5872</div>
+                        <div className="generate-title">{randomResto.name}</div>
+                        <div className="generate-text address">{randomResto.address}</div>
+                        <div className="generate-text phone">{randomResto.phonenumber}</div>
 
                         <div className="generate-dietary">
-                            <i className="fas fa-carrot fa-lg dietary-icons"/>
-                            <i className="fas fa-fish fa-lg"/>
+                            {randomResto.vegan ? <i className="fas fa-carrot fa-lg dietary-icons"/> : <div/>}
+                            {randomResto.pescetarian ? <i className="fas fa-fish fa-lg"/> : <div/>}
                         </div>
 
-                        <button className="close-modal" onClick={toggleModal}>x</button>
+                        <button className="close-modal" onClick={()=>{setModal(false)}}>x</button>
                     </div>
                 </div> 
             )}
