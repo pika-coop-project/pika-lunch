@@ -5,48 +5,48 @@ import Listing from './Listing';
 export default function LunchHistory({ increment }) {
 
     // sample functions:
-    const testGetFunc = async () => {
-        const newGetRequest = await fetch("/.netlify/functions/restaurant");
-        const newListJson = await newGetRequest.json();
+    // const testGetFunc = async () => {
+    //     const newGetRequest = await fetch("/.netlify/functions/restaurant");
+    //     const newListJson = await newGetRequest.json();
         
-        console.log("GET request new result", newListJson);
-    }
+    //     console.log("GET request new result", newListJson);
+    // }
 
-    const testPostFunc = async () => {
-        const postRequest = await fetch("/.netlify/functions/restaurant", {
-            method: "POST",
-            body: JSON.stringify({
-            name: "Saku1",
-            address: "101 downtown",
-            }),
-        });
+    // const testPostFunc = async () => {
+    //     const postRequest = await fetch("/.netlify/functions/restaurant", {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //         name: "Saku1",
+    //         address: "101 downtown",
+    //         }),
+    //     });
         
-        console.log("POST request status code", postRequest.status);
-    }
+    //     console.log("POST request status code", postRequest.status);
+    // }
 
-    const testUpdateFunc = async () => {
-        const updateRequest = await fetch("/.netlify/functions/restaurant", {
-            method: "PATCH",
-            body: JSON.stringify({
-            name: "Saku1",
-            address: "101 downtown",
-            }),
-        });
+    // const testUpdateFunc = async () => {
+    //     const updateRequest = await fetch("/.netlify/functions/restaurant", {
+    //         method: "PATCH",
+    //         body: JSON.stringify({
+    //         name: "Saku1",
+    //         address: "101 downtown",
+    //         }),
+    //     });
         
-        console.log("UPDATE request status code", updateRequest.status);
-    }
+    //     console.log("UPDATE request status code", updateRequest.status);
+    // }
 
-    const testDeleteFunc = async () => {
-        const deleteRequest = await fetch("/.netlify/functions/restaurant", {
-            method: "DELETE",
-            body: JSON.stringify({
-            name: "Saku1",
-            address: "101 downtown",
-            }),
-        });
+    // const testDeleteFunc = async () => {
+    //     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
+    //         method: "DELETE",
+    //         body: JSON.stringify({
+    //         name: "Saku1",
+    //         address: "101 downtown",
+    //         }),
+    //     });
         
-        console.log("DELETE request status code", deleteRequest.status);
-    }
+    //     console.log("DELETE request status code", deleteRequest.status);
+    // }
 
     const [listings, setListings] = useState([]);
     const [searchInput, setSearchInput] = useState('');
