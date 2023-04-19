@@ -4,7 +4,7 @@ import star from '../../asset/img/star.svg';
 
 
 
-export default function Rating ({ restaurantName, rating, numRatings }) {
+export default function Rating ({ restaurantName, rating, numRatings, increment }) {
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
         method: "DELETE",
@@ -14,8 +14,9 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
     });
     
     console.log("DELETE request status code", deleteRequest.status);
-    // eslint-disable-next-line
-    location.reload();
+    // // eslint-disable-next-line
+    // location.reload();
+    increment();
   }
 
   const updateRating = async (newRating) => {

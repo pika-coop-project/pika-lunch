@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import logo from './asset/img/logo.svg';
 import './App.css';
 import LunchHistory from './component/LunchHistory';
@@ -6,8 +6,10 @@ import LunchOptions from './component/LunchOptions';
 
 function App() {
   // eslint-disable-next-line
-  const [update, setUpdate] = useState(0);
-  const increment = () => {setUpdate(u => u + 1)};
+  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+  function increment() {
+    forceUpdate();
+  }
 
   return (
     <div className="App">
