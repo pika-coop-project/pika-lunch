@@ -136,6 +136,7 @@ export default function LunchHistory({ increment }) {
                                         isVegan={item.vegan}
                                         isHistory={item.went}
                                         rating={item.rating}
+                                        numRatings={item.num_ratings}
                                         upvotes={item.upvotes}
                                         downvotes={item.downvotes}
                                         increment={increment}

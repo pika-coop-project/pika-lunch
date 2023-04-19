@@ -21,6 +21,9 @@ export default function Rating ({ restaurantName, rating, numRatings }) {
   const updateRating = async (newRating) => {
     const newNumRating = numRatings + 1;
     const newAvgRating = (rating * numRatings + newRating) / newNumRating;
+    console.log("new rating", newRating);
+    console.log("rating", rating);
+    console.log("num rating", numRatings);
     console.log("new num ratings", newNumRating);
     console.log("new avg rating", newAvgRating);
     console.log(JSON.stringify({
