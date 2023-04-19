@@ -1,10 +1,11 @@
 import React from 'react';
 import './Rating.css';
+import { ListingContext } from '../../App.js';
 import star from '../../asset/img/star.svg';
 
+export default function Rating ({ restaurantName, rating, numRatings }) {
+  const increment = React.useContext(ListingContext);
 
-
-export default function Rating ({ restaurantName, rating, numRatings, increment }) {
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
         method: "DELETE",

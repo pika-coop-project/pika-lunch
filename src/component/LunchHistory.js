@@ -2,7 +2,7 @@ import './ListingCards.css';
 import React, { useState, useEffect } from "react";
 import Listing from './Listing';
 
-export default function LunchHistory({ increment }) {
+export default function LunchHistory() {
 
     // sample functions:
     // const testGetFunc = async () => {
@@ -148,7 +148,6 @@ export default function LunchHistory({ increment }) {
                                         numRatings={item.num_ratings}
                                         upvotes={item.upvotes}
                                         downvotes={item.downvotes}
-                                        increment={increment}
                                     />
                     )}
                 </div>

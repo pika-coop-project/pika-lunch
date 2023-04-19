@@ -3,7 +3,7 @@ import './AddOptionModal.css';
 import React, { useState, useEffect } from "react";
 import Listing from './Listing';
 
-export default function LunchOptions({ increment }){
+export default function LunchOptions() {
     const [listings, setListings] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [generateModal, setGenerateModal] = useState(false);
@@ -152,7 +152,6 @@ export default function LunchOptions({ increment }){
                                     numRatings={item.num_ratings}
                                     upvotes={item.upvotes}
                                     downvotes={item.downvotes}
-                                    increment={increment}
                                 />
                 )}
 

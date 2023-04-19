@@ -1,15 +1,18 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import logo from './asset/img/logo.svg';
 import './App.css';
 import LunchHistory from './component/LunchHistory';
 import LunchOptions from './component/LunchOptions';
 
+export const ListingContext = React.createContext();
+
 function App() {
   // eslint-disable-next-line
-  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  function increment() {
-    forceUpdate();
-  }
+  const [count, setCount] = useState(0);
+  const increment = () => {
+    console.log("count", count);
+    setCount(prev => prev+1);
+  };
 
   return (
     <div className="App">
@@ -23,8 +26,10 @@ function App() {
       </div>
       
       <div className="listing-cards">
-        <LunchHistory increment={increment} />
-        <LunchOptions increment={increment} />
+        <ListingContext.Provider value={increment}>
+          <LunchHistory />
+          <LunchOptions />
+        </ListingContext.Provider>
       </div>
       
         
