@@ -63,10 +63,16 @@ export default function LunchOptions() {
         setAddModal(!addModal);
     }
     const handleAddOption = (event) => {
-       event.preventDefault();
-       addListingFunc();
-       // eslint-disable-next-line
-       location.reload();
+        const el = document.getElementById('add-modal-text-name-field'); 
+        if (el.checkValidity()) {
+            event.preventDefault();
+            addListingFunc();
+            // eslint-disable-next-line
+            location.reload();
+        } else {
+            el.reportValidity();
+        }
+
     }
 
     const handleChange = (event) => {
@@ -206,7 +212,8 @@ export default function LunchOptions() {
                             <div className="add-modal-subheader">Restaurant Info</div>
                             <div className="input-title">
                                 <div className="add-modal-text">Name</div>
-                                <input 
+                                <input
+                                    id="add-modal-text-name-field" 
                                     type="text" 
                                     className="input" 
                                     name="name" 
