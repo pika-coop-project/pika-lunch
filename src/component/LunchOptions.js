@@ -130,6 +130,9 @@ export default function LunchOptions() {
             <button className="generate-button" onClick={showRandomResto}>
                 <i className="fas fa-sync-alt fa-lg"/>
             </button>
+            <button className="add-button" onClick={handleAddModal}>
+                <i className="fas fa-plus fa-2x"/>
+            </button>
         </div>
         
         <div className="listing-container">
@@ -168,12 +171,6 @@ export default function LunchOptions() {
                                     link={item.link}
                                 />
                 )}
-            </div>
-
-            <div className="add-button-container">
-                <button className="add-button" onClick={handleAddModal}>
-                    <i className="fas fa-plus fa-2x"/>
-                </button>
             </div>
         </div>
 
