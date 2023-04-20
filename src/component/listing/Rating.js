@@ -2,7 +2,7 @@ import React from 'react';
 import './Rating.css';
 import star from '../../asset/img/star.svg';
 
-export default function Rating ({ id, restaurantName, rating, numRatings }) {
+export default function Rating ({ id, restaurantName, rating, numRatings, link }) {
 
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
@@ -39,7 +39,7 @@ export default function Rating ({ id, restaurantName, rating, numRatings }) {
     <div className="rating-container">
       <div className="restaurant-name-and-rating">
         {link ? 
-          <a href="https://www.sakuvancouver.com/" target="_blank" rel="noreferrer" className="restaurant-name">
+          <a href="https://www.sakuvancouver.com/" target="_blank" rel="noreferrer" className="restaurant-name haslink">
             {restaurantName}
           </a> :
           <div className="restaurant-name"> {restaurantName} </div>
