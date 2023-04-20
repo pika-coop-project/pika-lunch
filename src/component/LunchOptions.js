@@ -59,10 +59,6 @@ export default function LunchOptions() {
         }
     }, [searchInput]);
 
-    const handleWent = () => {
-        alert('went clicked');
-    }
-
     const handleAddModal = () => {
         setAddModal(!addModal);
     }
@@ -79,6 +75,18 @@ export default function LunchOptions() {
     const handleAdditionalInfo = (event) => {
         const isChecked = event.target.checked;
         setRestoInfo({...restoInfo, [event.target.name]: isChecked});
+    }
+
+    const updateWentForRandomResto = async () => {
+        const updateRequest = await fetch("/.netlify/functions/restaurant", {
+          method: "PATCH",
+          body: JSON.stringify({
+          name: randomResto.name,
+          }),
+        });
+        console.log("UPDATE request status code", updateRequest.status);
+        // eslint-disable-next-line
+        location.reload();
     }
 
     const addListingFunc = async () => {
@@ -176,7 +184,7 @@ export default function LunchOptions() {
                             {randomResto.vegan ? <i className="fas fa-carrot fa-lg dietary-icons"/> : <div/>}
                             {randomResto.pescetarian ? <i className="fas fa-fish fa-lg"/> : <div/>}
                         </div>
-                        <button onClick={handleWent} className="went-button">
+                        <button onClick={updateWentForRandomResto} className="went-button">
                             <i className="fas fa-check fa-lg"/>
                         </button>
                     </div>
