@@ -13,6 +13,8 @@
 
 .address {
   margin-top: 6px;
+  width: 430px;
+  overflow-wrap: break-word;
 }
 
 .dietary-icon {

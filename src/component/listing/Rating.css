@@ -8,6 +8,10 @@
   display: flex;
   flex-direction: row;
   justify-content: left;
+
+  display: flex;
+  overflow-wrap: anywhere;
+  width: 290px;
 }
 
 .restaurant-name {

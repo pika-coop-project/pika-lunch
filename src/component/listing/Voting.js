@@ -62,17 +62,19 @@ export default function Voting ({ id, restaurantName, upvotes, downvotes, link }
   return (
     <div className="voting-container">
       <div className="restaurant-name-and-voting">
-        <div className="name-container">
-        {link ? 
-          <a href={link} target="_blank" rel="noreferrer" className="restaurant-name haslink">
-            {restaurantName}
-          </a> :
-          <div className="restaurant-name"> {restaurantName} </div>
-        }
-        <button className="went-listing-button" onClick={UpdateWentFunc}>
-          <i className="fas fa-check fa-lg"/>
-        </button>
-      </div>
+
+          <div className="name-container">
+            {link ? 
+              <a href={link} target="_blank" rel="noreferrer" className="restaurant-name haslink">
+                {restaurantName}
+              </a> :
+              <div className="restaurant-name"> {restaurantName} </div>
+            }
+            <button className="went-listing-button" onClick={UpdateWentFunc}>
+              <i className="fas fa-check fa-lg"/>
+            </button>
+          </div>
+     
 
      
         <div className="votes">
@@ -87,6 +89,7 @@ export default function Voting ({ id, restaurantName, upvotes, downvotes, link }
           <button className="delete-listing-button" onClick={DeleteListingFunc}>x</button>
         </div>
       </div>
+
     </div>
   );
 }
