@@ -1,4 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require('mongodb').ObjectId;
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'Cluster0';
@@ -77,7 +78,7 @@ const deleteFromDatabase = async (db, data) => {
   };
 
   if (restaurantData.id) {
-    await db.collection("restaurant").deleteOne({"_id": { "$oid": restaurantData.id }});
+    await db.collection("restaurant").deleteOne({ "_id": ObjectId(restaurantData.id) });
     return { statusCode: 200 };
   } else {
     return { statusCode: 404 };
