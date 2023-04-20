@@ -63,7 +63,7 @@ export default function LunchOptions() {
         setAddModal(!addModal);
     }
     const handleAddOption = (event) => {
-        const el = document. getElementById('add-modal-text-name-field'); 
+        const el = document.getElementById('add-modal-text-name-field'); 
         if (el.checkValidity()) {
             event.preventDefault();
             addListingFunc();
