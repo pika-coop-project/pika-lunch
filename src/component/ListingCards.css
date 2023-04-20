@@ -97,9 +97,9 @@ body.active-modal {
 .modal-content {
   position: absolute;
   top: 30%;
-  left: 40%;
+  left: 38%;
   background: #ffffff;
-  padding: 50px;
+  padding: 56px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -119,8 +119,9 @@ body.active-modal {
 .generate-title {
   color: #173434;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 34px;
   transition: all 0.2s;
+  text-decoration: none;
 }
 .generate-title-haslink:hover {
   color: #a4dcb4;
@@ -128,12 +129,13 @@ body.active-modal {
 
 .generate-text {
   font-weight: 300;
-  font-size: 20px;
-  margin-top: 8px;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .address {
   color: #173434;
+  margin-top: 24px;
 }
 
 .rating {
