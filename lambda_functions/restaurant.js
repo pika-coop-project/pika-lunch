@@ -72,11 +72,12 @@ const updateDatabase = async (db, data) => {
 
 const deleteFromDatabase = async (db, data) => {
   const restaurantData = {
+    id: data.id,
     name: data.name
   };
 
-  if (restaurantData.name) {
-    await db.collection("restaurant").deleteOne({"name": restaurantData.name});
+  if (restaurantData.id) {
+    await db.collection("restaurant").deleteOne({"_id": { "$oid": restaurantData.id }});
     return { statusCode: 200 };
   } else {
     return { statusCode: 404 };
