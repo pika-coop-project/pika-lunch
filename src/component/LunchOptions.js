@@ -142,6 +142,7 @@ export default function LunchOptions() {
                             .map((item) => 
                                 <Listing 
                                     key={item._id}
+                                    id={item._id}
                                     restaurantName={item.name}
                                     address={item.address} 
                                     phoneNumber={item.phone}

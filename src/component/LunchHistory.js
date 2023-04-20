@@ -138,6 +138,7 @@ export default function LunchHistory() {
                                 .map((item) => 
                                     <Listing 
                                         key={item._id}
+                                        id={item._id}
                                         restaurantName={item.name}
                                         address={item.address} 
                                         phoneNumber={item.phone}

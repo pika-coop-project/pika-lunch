@@ -2,13 +2,13 @@ import React from 'react';
 import './Rating.css';
 import star from '../../asset/img/star.svg';
 
-export default function Rating ({ key, restaurantName, rating, numRatings }) {
+export default function Rating ({ id, restaurantName, rating, numRatings }) {
 
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
         method: "DELETE",
         body: JSON.stringify({
-        id: key,
+        id: id,
         name: restaurantName,
         }),
     });
