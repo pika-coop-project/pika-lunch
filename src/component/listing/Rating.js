@@ -38,7 +38,12 @@ export default function Rating ({ id, restaurantName, rating, numRatings }) {
   return (
     <div className="rating-container">
       <div className="restaurant-name-and-rating">
-        <div className="restaurant-name">{restaurantName}</div>
+        {link ? 
+          <a href="https://www.sakuvancouver.com/" target="_blank" rel="noreferrer" className="restaurant-name">
+            {restaurantName}
+          </a> :
+          <div className="restaurant-name"> {restaurantName} </div>
+        }
         <img src={star} className="star-icon" alt="star icon" />
         <div className="restaurant-rating-number">{Math.round(rating*10)/10}</div>
       </div>

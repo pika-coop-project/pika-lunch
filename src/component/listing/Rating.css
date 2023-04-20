@@ -13,6 +13,12 @@
 .restaurant-name {
   font-size: 28px;
   font-weight: bold;
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s;
+}
+.restaurant-name:hover {
+  color: #a4dcb4;
 }
 
 .restaurant-rating-number {
