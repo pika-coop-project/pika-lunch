@@ -97,9 +97,9 @@ body.active-modal {
 .modal-content {
   position: absolute;
   top: 30%;
-  left: 40%;
+  left: 38%;
   background: #ffffff;
-  padding: 50px;
+  padding: 56px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
