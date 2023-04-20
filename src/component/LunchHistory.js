@@ -71,6 +71,7 @@ export default function LunchHistory() {
             rating: randomListing.rating,
             vegan: randomListing.vegan,
             pescetarian: randomListing.pescetarian,
+            link: randomListing.link
         });
         setModal(true);
     }
@@ -145,6 +146,7 @@ export default function LunchHistory() {
                                         numRatings={item.num_ratings}
                                         upvotes={item.upvotes}
                                         downvotes={item.downvotes}
+                                        link={item.link}
                                     />
                     )}
                 </div>
@@ -162,6 +164,7 @@ export default function LunchHistory() {
                         <div className="generate-title">{randomResto.name}</div>
                         <div className="generate-text address">{randomResto.address}</div>
                         <div className="generate-text phone">{randomResto.phonenumber}</div>
+                        <div className="generate-text link">{randomResto.link}</div>
 
                         <div className="generate-dietary">
                             {randomResto.vegan ? <i className="fas fa-carrot fa-lg dietary-icons"/> : <div/>}
