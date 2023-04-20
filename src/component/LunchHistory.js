@@ -63,7 +63,6 @@ export default function LunchHistory() {
         const result = await fetch("/.netlify/functions/restaurant");
         const dbListings = Array.from(await result.json());
         const history = dbListings.filter(listing => listing.went);
-        console.log("history listings from DB", history);
         const randomListing = history[Math.floor(Math.random() * history.length)];
         setRandomResto({
             name: randomListing.name,
@@ -80,14 +79,12 @@ export default function LunchHistory() {
         const result = await fetch("/.netlify/functions/restaurant");
         const dbListings = await result.json();
         const searchResults = dbListings.filter(listing => (listing.name.toLowerCase()).includes(searchInput.toLowerCase()));
-        console.log("search results->", searchResults);
         setListings(searchResults);
     }
 
     const getAndSetListingsFromDB = async () => {
         const result = await fetch("/.netlify/functions/restaurant");
         const dbListings = await result.json();
-        console.log("Listings from DB", dbListings);
         setListings(Array.from(dbListings));
     }
 
@@ -133,7 +130,6 @@ export default function LunchHistory() {
                     </form>
                 </div>
                 <div className="listings">
-                    {console.log("in div:", listings)}
                     {(listings.filter((listing) => listing.went))
                                 .map((item) => 
                                     <Listing 

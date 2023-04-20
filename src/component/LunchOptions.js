@@ -26,7 +26,6 @@ export default function LunchOptions() {
         const result = await fetch("/.netlify/functions/restaurant");
         const dbListings = Array.from(await result.json());
         const options = dbListings.filter(listing => !listing.went);
-        console.log("option listings from DB", options);
         const randomListing = options[Math.floor(Math.random() * options.length)];
         setRandomResto({
             name: randomListing.name,
@@ -35,7 +34,6 @@ export default function LunchOptions() {
             vegan: randomListing.vegan,
             pescetarian: randomListing.pescetarian,
         });
-        console.log("random resto: ", randomResto);
         setGenerateModal(true);
     }
 
@@ -43,14 +41,12 @@ export default function LunchOptions() {
         const result = await fetch("/.netlify/functions/restaurant");
         const dbListings = await result.json();
         const searchResults = dbListings.filter(listing => (listing.name.toLowerCase()).includes(searchInput.toLowerCase()));
-        console.log("search results->", searchResults);
         setListings(searchResults);
     }
 
     const getAndSetListingsFromDB = async () => {
         const result = await fetch("/.netlify/functions/restaurant");
         const dbListings = await result.json();
-        console.log("Listings from DB", dbListings);
         setListings(Array.from(dbListings));
     }
 
@@ -70,9 +66,8 @@ export default function LunchOptions() {
     const handleAddOption = (event) => {
        event.preventDefault();
        addListingFunc();
-       getAndSetListingsFromDB();
-       setRestoInfo({ name: "", address: "", phonenumber: "", vegan: false, pescetarian: false });
-       setAddModal(!addModal);
+       // eslint-disable-next-line
+       location.reload();
     }
 
     const handleChange = (event) => {
@@ -132,8 +127,7 @@ export default function LunchOptions() {
                         placeholder="Search.."
                         value={searchInput}
                         onChange={e => {
-                            setSearchInput(e.target.value);
-                            console.log(searchInput);}}
+                            setSearchInput(e.target.value);}}
                     />
                 </form>
             </div>
