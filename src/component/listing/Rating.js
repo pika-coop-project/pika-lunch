@@ -15,7 +15,7 @@ export default function Rating ({ id, restaurantName, rating, numRatings }) {
     
     console.log("DELETE request status code", deleteRequest.status);
     // eslint-disable-next-line
-    //location.reload();
+    location.reload();
   }
 
   const updateRating = async (newRating) => {
