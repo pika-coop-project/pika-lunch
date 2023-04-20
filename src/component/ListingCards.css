@@ -87,6 +87,7 @@ body.active-modal {
   bottom: 0;
   position: fixed;
   background: rgba(49, 49, 49, 0.6);
+  z-index: 99;
 }
 
 .modal-content {
@@ -99,7 +100,6 @@ body.active-modal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 99;
 }
 
 .close-modal {
