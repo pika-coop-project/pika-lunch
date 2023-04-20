@@ -10,7 +10,7 @@
 }
 
 header {
-  font-size: 50px;
+  font-size: 46px;
   color: #173434;
   margin-top: 10px;
 }
@@ -30,7 +30,7 @@ header {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  margin: 90px 0px 6px 0px;
+  margin: 80px 0px 0px 0px;
 }
 
 .listing-cards {
