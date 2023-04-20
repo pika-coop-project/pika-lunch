@@ -16,6 +16,20 @@
   min-height: 50vh;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  color: #d9f0df;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  color: #c3d8c9;
+}
+
 .searchbar-container {
   margin: 20px;
 }
