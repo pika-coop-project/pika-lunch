@@ -212,7 +212,9 @@ export default function LunchOptions() {
                                     name="name" 
                                     placeholder="Insert Name"
                                     value={restoInfo.name}
-                                    onChange={handleChange}/>
+                                    onChange={handleChange}
+                                    minlength="3"
+                                    required />
                             </div>
                             <div className="input-title">
                                 <div className="add-modal-text">Address</div>
