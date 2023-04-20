@@ -1,7 +1,7 @@
 import React from 'react';
 import './Voting.css';
 
-export default function Voting ({ id, restaurantName, upvotes, downvotes }) {
+export default function Voting ({ id, restaurantName, upvotes, downvotes, link }) {
 
   const DeleteListingFunc = async () => {
     const deleteRequest = await fetch("/.netlify/functions/restaurant", {
@@ -63,7 +63,12 @@ export default function Voting ({ id, restaurantName, upvotes, downvotes }) {
     <div className="voting-container">
       <div className="restaurant-name-and-voting">
         <div className="name-container">
-        <div className="restaurant-name">{restaurantName}</div>
+        {link ? 
+          <a href={link} target="_blank" rel="noreferrer" className="restaurant-name haslink">
+            {restaurantName}
+          </a> :
+          <div className="restaurant-name"> {restaurantName} </div>
+        }
         <button className="went-listing-button" onClick={UpdateWentFunc}>
           <i className="fas fa-check fa-lg"/>
         </button>

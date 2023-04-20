@@ -39,7 +39,7 @@ export default function Rating ({ id, restaurantName, rating, numRatings, link }
     <div className="rating-container">
       <div className="restaurant-name-and-rating">
         {link ? 
-          <a href="https://www.sakuvancouver.com/" target="_blank" rel="noreferrer" className="restaurant-name haslink">
+          <a href={link} target="_blank" rel="noreferrer" className="restaurant-name haslink">
             {restaurantName}
           </a> :
           <div className="restaurant-name"> {restaurantName} </div>

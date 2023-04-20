@@ -12,6 +12,9 @@
   font-size: 24px;
   font-weight: bold;
 }
+.haslink:hover {
+  color: #a4dcb4;
+}
 
 .votes {
   display: flex;
