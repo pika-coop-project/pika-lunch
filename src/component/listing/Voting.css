@@ -19,20 +19,19 @@
 .votes {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   color: #a4dcb4;
 }
 
 .went-listing-button {
   height: 30px;
-  width: 42px;
+  min-width: 42px;
 
   color: #d9f0df;
   background-color: #a4dcb4;
   border-radius: 6px;
   border: none;
   margin-left: 16px;
-  margin-top: -4px;
   transition: all 0.2s;
 }
 .went-listing-button:hover {
@@ -58,12 +57,16 @@
 .name-container {
   display: flex;
   flex-direction: row;
+
+  display: flex;
+  overflow-wrap: anywhere;
+  width: 290px;
 }
 
 .delete-listing-button {
   border: none;
   background: transparent;
-  margin-top: -14px;
+  height: 10px;
   margin-left: 10px;
   color: #c3d8c9;
   font-size: 16px;

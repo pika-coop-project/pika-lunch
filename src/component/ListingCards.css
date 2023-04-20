@@ -130,7 +130,6 @@ body.active-modal {
 .generate-text {
   font-weight: 300;
   font-size: 18px;
-  margin-top: 10px;
 }
 
 .address {
@@ -144,6 +143,7 @@ body.active-modal {
 
 .phone {
   color: #a4dcb4;
+  margin-top: 10px;
   margin-bottom: 26px;
 }
 

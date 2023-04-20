@@ -1,7 +1,7 @@
 .listing {
   background-color: #ffffff;
   width: 434px;
-  height: 70px;
+  min-height: 70px;
   margin-bottom: 14px;
   margin-left: 20px;
   padding: 20px 20px;
