@@ -54,6 +54,7 @@ export default function LunchHistory() {
         name: "",
         address: "",
         phonenumber:"",
+        link: "",
         rating: 0,
         vegan: false,
         pescetarian: false,
@@ -161,10 +162,14 @@ export default function LunchHistory() {
                             <i className="fas fa-star fa-sm star"/>
                             {Math.round(randomResto.rating*10)/10}
                         </div>
-                        <div className="generate-title">{randomResto.name}</div>
+                        {randomResto.link ? 
+                            <a href={randomResto.link} target="_blank" rel="noreferrer" className="generate-title generate-title-haslink">
+                                {randomResto.name}
+                            </a> :
+                            <div className="generate-title">{randomResto.name}</div>
+                        }
                         <div className="generate-text address">{randomResto.address}</div>
                         <div className="generate-text phone">{randomResto.phonenumber}</div>
-                        <div className="generate-text link">{randomResto.link}</div>
 
                         <div className="generate-dietary">
                             {randomResto.vegan ? <i className="fas fa-carrot fa-lg dietary-icons"/> : <div/>}

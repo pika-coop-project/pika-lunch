@@ -130,11 +130,12 @@ body.active-modal {
 .generate-text {
   font-weight: 300;
   font-size: 18px;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .address {
   color: #173434;
+  margin-top: 16px;
 }
 
 .rating {
