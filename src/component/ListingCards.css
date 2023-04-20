@@ -11,22 +11,24 @@
 
 .listings {
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #c3d8c9;
   min-height: 50vh;
 }
 
-::-webkit-scrollbar {
+.listings::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-track {
+.listings::-webkit-scrollbar-track {
   border-radius: 10px;
+  color: #d9f0df;
 }
 
-::-webkit-scrollbar-thumb {
+.listings::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  color: #ffffff;
+  color: #c3d8c9;
 }
 
 .searchbar-container {
