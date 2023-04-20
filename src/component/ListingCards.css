@@ -17,10 +17,6 @@
   min-height: 50vh;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
 .searchbar-container {
   margin: 20px;
 }
