@@ -12,6 +12,7 @@ export default function LunchOptions() {
         name: "",
         address: "",
         phonenumber:"",
+        link: "",
         vegan: false,
         pescetarian: false,
     });
@@ -19,6 +20,7 @@ export default function LunchOptions() {
         name: "",
         address: "",
         phonenumber:"",
+        link: "",
         vegan: false,
         pescetarian: false,
     });
@@ -31,6 +33,7 @@ export default function LunchOptions() {
             name: randomListing.name,
             address: randomListing.address,
             phonenumber: randomListing.phone,
+            link: randomListing.link,
             vegan: randomListing.vegan,
             pescetarian: randomListing.pescetarian,
         });
@@ -85,6 +88,7 @@ export default function LunchOptions() {
             name: restoInfo.name,
             address: restoInfo.address,
             phone: restoInfo.phonenumber,
+            link: restoInfo.link,
             vegan: restoInfo.vegan,
             pescetarian: restoInfo.pescetarian,
             rating: 0,
@@ -147,6 +151,7 @@ export default function LunchOptions() {
                                     numRatings={item.num_ratings}
                                     upvotes={item.upvotes}
                                     downvotes={item.downvotes}
+                                    link={item.link}
                                 />
                 )}
 
@@ -165,6 +170,7 @@ export default function LunchOptions() {
                     <div className="generate-title">{randomResto.name}</div>
                     <div className="generate-text address">{randomResto.address}</div>
                     <div className="generate-text phone">{randomResto.phonenumber}</div>
+                    <div className="generate-text link">{randomResto.link}</div>
                     <div className="generate-details">
                         <div className="generate-dietary">
                             {randomResto.vegan ? <i className="fas fa-carrot fa-lg dietary-icons"/> : <div/>}
@@ -217,6 +223,16 @@ export default function LunchOptions() {
                                     value={restoInfo.phonenumber}
                                     onChange={handleChange}/>
                             </div> 
+                            <div className="input-title">
+                                <div className="add-modal-text">Menu Link</div>
+                                <input 
+                                    type="text" 
+                                    className="input" 
+                                    name="link" 
+                                    placeholder="Add url"
+                                    value={restoInfo.link}
+                                    onChange={handleChange}/>
+                            </div>
                         </div>
 
                         <div className="vl"></div>
