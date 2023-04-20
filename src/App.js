@@ -17,8 +17,8 @@ function App() {
       </div>
       
       <div className="listing-cards">
-        <LunchHistory />
         <LunchOptions />
+        <LunchHistory />
       </div>
       
         
