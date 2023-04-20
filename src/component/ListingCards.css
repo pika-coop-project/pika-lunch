@@ -17,18 +17,8 @@
   min-height: 50vh;
 }
 
-.listings::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 10px;
-}
-
-.listings::-webkit-scrollbar-track {
-  border-radius: 10px;
-  color: #d9f0df;
-}
-
-.listings::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  color: #c3d8c9;
 }
 
 .searchbar-container {
