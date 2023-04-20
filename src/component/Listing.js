@@ -4,7 +4,7 @@ import RestaurantInfo from './listing/RestaurantInfo';
 import Rating from './listing/Rating';
 import Voting from './listing/Voting';
 
-const Listing = ({ id, restaurantName, address, phoneNumber, isVegan, isPescetarian, isHistory=false, rating, numRatings, upvotes, downvotes, link }) => {
+const Listing = ({ id, restaurantName, address, phoneNumber, isVegan, isPescetarian, isHistory, rating, numRatings, upvotes, downvotes, link }) => {
     if (isHistory) {
         return (
         <div className="listing listing-flex">

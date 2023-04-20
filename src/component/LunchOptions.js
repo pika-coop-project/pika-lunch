@@ -162,7 +162,6 @@ export default function LunchOptions() {
                                     link={item.link}
                                 />
                 )}
-
             </div>
 
             <div className="add-button-container">
@@ -175,10 +174,14 @@ export default function LunchOptions() {
         { generateModal && (
             <div className="modal">
                 <div className="modal-content">
-                    <div className="generate-title">{randomResto.name}</div>
+                    {randomResto.link ? 
+                        <a href={randomResto.link} target="_blank" rel="noreferrer" className="generate-title generate-title-haslink">
+                            {randomResto.name}
+                        </a> :
+                        <div className="generate-title">{randomResto.name}</div>
+                    }
                     <div className="generate-text address">{randomResto.address}</div>
                     <div className="generate-text phone">{randomResto.phonenumber}</div>
-                    <div className="generate-text link">{randomResto.link}</div>
                     <div className="generate-details">
                         <div className="generate-dietary">
                             {randomResto.vegan ? <i className="fas fa-carrot fa-lg dietary-icons"/> : <div/>}

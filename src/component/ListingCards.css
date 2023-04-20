@@ -1,6 +1,6 @@
 .listing-container {
   background-color: #d9f0df;
-  width: 590px;
+  width: 510px;
   height: 62vh;
   border-radius: 26px;
   display: flex;
@@ -22,7 +22,7 @@
 }
 
 .searchbar {
-  width: 528px;
+  width: 444px;
   height: 34px;
   background: #edf6f0;
   border-radius: 12px;
@@ -35,7 +35,7 @@
   font-weight: 300;
   font-size: 30px;
   color: #173434;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   margin-left: 32px;
 }
 
@@ -79,8 +79,8 @@ body.active-modal {
 
 .add-button-container {
   position: fixed;
-  right: 14%;
-  bottom: 13%;
+  right: 16%;
+  bottom: 10%;
 }
 
 .modal {
@@ -96,11 +96,11 @@ body.active-modal {
 
 .modal-content {
   position: absolute;
-  top: 35%;
-  left: 35%;
+  top: 30%;
+  left: 40%;
   background: #ffffff;
-  padding: 60px;
-  border-radius: 26px;
+  padding: 50px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,12 +118,16 @@ body.active-modal {
 
 .generate-title {
   color: #173434;
-  font-weight: 500;
-  font-size: 50px;
+  font-weight: 400;
+  font-size: 36px;
+  transition: all 0.2s;
+}
+.generate-title-haslink:hover {
+  color: #a4dcb4;
 }
 
 .generate-text {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 20px;
   margin-top: 8px;
 }
@@ -147,8 +151,8 @@ body.active-modal {
 }
 
 .went-button {
-  width: 64px;
-  height: 40px;
+  width: 58px;
+  height: 38px;
   background: #a4dcb4;
   border-radius: 8px;
   color: #d9f0df;
