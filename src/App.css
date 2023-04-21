@@ -5,8 +5,9 @@
 }
 
 .App-logo {
-  width: 207px;
-  height: 109px;
+  width: 210px;
+  padding-right: 30px;
+  margin-bottom: -55px;
 }
 
 header {
