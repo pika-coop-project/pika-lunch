@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './asset/img/logo.svg';
+import pika from './asset/img/pikachu.svg';
 import './App.css';
 import LunchHistory from './component/LunchHistory';
 import LunchOptions from './component/LunchOptions';
@@ -13,7 +13,7 @@ function App() {
           <header>Lunch Navigator</header>
         </div>
         
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={pika} className="App-logo" alt="pikachu" />
       </div>
       
       <div className="listing-cards">
