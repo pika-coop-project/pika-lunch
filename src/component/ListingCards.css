@@ -45,8 +45,9 @@
 }
 
 .generate-button {
-  width: 55px;
-  height: 38px;
+  width: 56px;
+  height: 40px;
+  font-size: 12px;
   background-color: #a4dcb4;
   color: #ffffff;
   border: none;

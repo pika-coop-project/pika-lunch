@@ -128,7 +128,7 @@ export default function LunchOptions() {
         <div className="listings-header">
             <div className="listings-title">Lunch Options</div>
             <button className="generate-button" onClick={showRandomResto}>
-                Random
+                random
             </button>
             <button className="add-button" onClick={handleAddModal}>
                 <i className="fas fa-plus fa-lg"/>
