@@ -109,7 +109,7 @@ export default function LunchHistory() {
             <div className="listings-header">
                 <div className="listings-title">Lunch History</div>
                 <button className="generate-button" onClick={showRandomResto}>
-                    random
+                    <i class="fa fa-random fa-lg"/>
                 </button>
             </div>
 

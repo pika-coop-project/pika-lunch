@@ -45,13 +45,13 @@
 }
 
 .generate-button {
-  width: 56px;
-  height: 40px;
+  width: 52px;
+  height: 36px;
   font-size: 12px;
   background-color: #a4dcb4;
   color: #ffffff;
   border: none;
-  border-radius: 15px;
+  border-radius: 12px;
   margin-left: 20px;
   transition: all 0.2s;
 }
@@ -65,9 +65,9 @@ body.active-modal {
 }
 
 .add-button {
-  width: 55px;
-  height: 38px;
-  border-radius: 15px;
+  width: 52px;
+  height: 36px;
+  border-radius: 12px;
   border: none;
   color: #ffffff;
   background-color: #004c45;
